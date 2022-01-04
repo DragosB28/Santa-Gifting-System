@@ -1,9 +1,7 @@
 package main;
 
-import checker.Checker;
-import com.fasterxml.jackson.databind.JsonNode;
-import jsonparser.Input;
-import jsonparser.InputLoader;
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import jsonparser.*;
 
 import java.io.IOException;
 
@@ -23,8 +21,20 @@ public final class Main {
     public static void main(final String[] args) throws IOException {
         //Checker.calculateScore();
 
-        InputLoader inputLoader = new InputLoader("C:\\Users\\barbu\\OneDrive\\Desktop\\SantaHW\\tests\\test1.json");
+        InputLoader inputLoader = new InputLoader("C:\\Users\\barbu\\OneDrive\\Desktop\\SantaHW\\tests\\test2.json");
         Input input = inputLoader.readData();
-        System.out.println(input);
+        //System.out.println(input);
+
+        Santa santa = new Santa(input);
+        santa.solveRoundZero(input);
+        Child testChild = input.getInitialData().getChildren().get(0);
+        System.out.println(testChild.getReceivedGifts());
+        System.out.println(testChild.getAverageScore());
+        System.out.println(testChild.getUpdatedAllocatedBudget());
+
+        System.out.println();
+        JsonMapper mapper = new JsonMapper();
+        String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(new AnnualChildrenJsonWriter(input.getInitialData().getChildren()));
+        System.out.println(jsonString);
     }
 }
