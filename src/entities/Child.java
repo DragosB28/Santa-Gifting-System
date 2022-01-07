@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Child {
+public final class Child {
     private int id;
     private String lastName;
     private String firstName;
@@ -194,14 +194,24 @@ public class Child {
 
     @Override
     public String toString() {
-        return "Child{" +
-                "id=" + id +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", age=" + age +
-                ", city=" + city +
-                ", niceScore=" + niceScore +
-                ", giftsPreferences=" + giftsPreferences +
+        return "Child{"
+                +
+                "id=" + id
+                +
+                ", lastName='" + lastName
+                + '\''
+                +
+                ", firstName='" + firstName
+                + '\''
+                +
+                ", age=" + age
+                +
+                ", city=" + city
+                +
+                ", niceScore=" + niceScore
+                +
+                ", giftsPreferences=" + giftsPreferences
+                +
                 '}';
     }
 }

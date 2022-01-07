@@ -14,7 +14,7 @@ public class Santa {
     private double santaBudget;
     private double budgetUnit;
 
-    public Santa(Input input) {
+    public Santa(final Input input) {
         this.input = input;
         if (input.getInitialData().getChildren() == null) {
             this.children = new ArrayList<>();
@@ -26,7 +26,12 @@ public class Santa {
         this.budgetUnit = 0;
     }
 
-    public void solveRoundZero(Input input) {
+    /**
+     * Solves the initial round
+     *
+     * @param input the data to work with
+     */
+    public void solveRoundZero(final Input input) {
         this.checkAgeRestriction();
         this.calculateAverageScore();
         this.calculateBudgetUnit();
@@ -34,14 +39,22 @@ public class Santa {
         this.decideGiftsPerChild();
     }
 
+    /**
+     * Removes all the young adults from the list
+     */
     public void checkAgeRestriction() {
         List<Child> auxList = this.children;
-        children = children.stream().filter(child -> child.getAgeCategory() != AgeCategory.YOUNG_ADULT).collect(Collectors.toList());
+        children = children.stream().
+                filter(child -> child.getAgeCategory() != AgeCategory.YOUNG_ADULT)
+                .collect(Collectors.toList());
         auxList.clear();
         auxList.addAll(children);
         children = auxList;
     }
 
+    /**
+     * Calculates the average score of each child
+     */
     public void calculateAverageScore() {
         for (Child child : children) {
             double averageScore;
@@ -69,6 +82,9 @@ public class Santa {
 
     }
 
+    /**
+     * Calculates the budget unit
+     */
     public void calculateBudgetUnit() {
         double sumOfAverageScores = 0;
 
@@ -78,16 +94,23 @@ public class Santa {
         this.budgetUnit = this.santaBudget / sumOfAverageScores;
     }
 
+    /**
+     * Calculates the allocated budget of each child
+     */
     public void calculateAllocatedBudget() {
         double childBudget = 0;
 
         for (Child child : children) {
             childBudget = child.getAverageScore() * this.budgetUnit;
-
             child.setFirstAssignedBudget(childBudget);
         }
     }
 
+    /**
+     * Searches through each child's gift preference list and santa's available
+     * gifts, decides which is the cheapest gift to offer and then add it to the
+     * child's list and updates the remaining budget.
+     */
     public void decideGiftsPerChild() {
         for (Child child : children) {
             double remainingBudget = child.getFirstAssignedBudget();
@@ -106,7 +129,9 @@ public class Santa {
                         }
                     }
                 }
-                if (chosenGift != null && (Double.compare(remainingBudget, chosenGift.getPrice()) > 0) && !child.getReceivedGifts().contains(chosenGift)) {
+                if (chosenGift != null && (Double.
+                        compare(remainingBudget, chosenGift.getPrice()) > 0)
+                        && !child.getReceivedGifts().contains(chosenGift)) {
                     child.addReceivedGift(chosenGift);
                     remainingBudget = remainingBudget - chosenGift.getPrice();
                 }
@@ -114,7 +139,12 @@ public class Santa {
         }
     }
 
-    public void solveOneYearRound(AnnualChanges annualChange) {
+    /**
+     * Does all the work needed to solve one annnualChange round
+     *
+     * @param annualChange  which annualChange to solve
+     */
+    public void solveOneYearRound(final AnnualChanges annualChange) {
         this.incrementAgeEachYear();
         this.addNewChildrenToSantaList(annualChange.getNewChildren());
         this.updateChildAgeCategory();
@@ -130,6 +160,9 @@ public class Santa {
         this.decideGiftsPerChild();
     }
 
+    /**
+     * After passing one year, increments the age of all the children
+     */
     public void incrementAgeEachYear() {
         for (Child child : children) {
             int newAge = child.getAge() + 1;
@@ -137,13 +170,23 @@ public class Santa {
         }
     }
 
-    public void addNewChildrenToSantaList(List<Child> newChildrenList) {
+    /**
+     * Adds the new children list to the Santa's children list
+     *
+     * @param newChildrenList   to be added
+     */
+    public void addNewChildrenToSantaList(final List<Child> newChildrenList) {
         for (Child child : newChildrenList) {
             this.children.add(child);
         }
     }
 
-    public void addNewNiceScoreToList(List<ChildUpdate> childrenUpdates) {
+    /**
+     * Adds the new nice score list to each child's list
+     *
+     * @param childrenUpdates   to be added
+     */
+    public void addNewNiceScoreToList(final List<ChildUpdate> childrenUpdates) {
         for (ChildUpdate childUpdate : childrenUpdates) {
             for (Child child : children) {
                 if (childUpdate.getId() == child.getId()) {
@@ -154,7 +197,12 @@ public class Santa {
         }
     }
 
-    public void addNewGiftsPreferences(List<ChildUpdate> childrenUpdates) {
+    /**
+     * Adds the new gifts preferences to each child's preference list
+     *
+     * @param childrenUpdates   to be added
+     */
+    public void addNewGiftsPreferences(final List<ChildUpdate> childrenUpdates) {
         for (ChildUpdate childUpdate : childrenUpdates) {
             for (Child child : children) {
                 if (child.getId() == childUpdate.getId()) {
@@ -165,22 +213,38 @@ public class Santa {
         }
     }
 
-    public void addNewSantaGifts(List<Gift> newGifts) {
+    /**
+     * Adds the new gifts available to the Santa's gift list
+     *
+     * @param newGifts  to be added
+     */
+    public void addNewSantaGifts(final List<Gift> newGifts) {
         for (Gift gift : newGifts) {
             this.santaGiftsList.add(gift);
         }
     }
 
-    public void updateSantaBudget(Double newSantaBudget) {
+    /**
+     * Updates Santa's new budget
+     *
+     * @param newSantaBudget    to be updated
+     */
+    public void updateSantaBudget(final Double newSantaBudget) {
         this.santaBudget = newSantaBudget;
     }
 
+    /**
+     * Goes through the list of children and updates the age category for each one
+     */
     public void updateChildAgeCategory() {
         for (Child child : children) {
             child.calculateAgeCategory();
         }
     }
 
+    /**
+     * Goes through the list of children and clears the previous list of received gifts
+     */
     public void resetAllPreviousGifts() {
         for (Child child : children) {
             child.resetReceivedGifts();

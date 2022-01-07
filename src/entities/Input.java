@@ -2,7 +2,7 @@ package entities;
 
 import java.util.List;
 
-public class Input {
+public final class Input {
     private final int numberOfYears;
     private final double santaBudget;
     private final InitialData initialData;
@@ -42,11 +42,16 @@ public class Input {
 
     @Override
     public String toString() {
-        return "Input{" +
-                "numberOfYears=" + numberOfYears +
-                ", santaBudget=" + santaBudget +
-                ", initialData=" + initialData +
-                ", annualChanges=" + annualChanges +
+        return "Input{"
+                +
+                "numberOfYears=" + numberOfYears
+                +
+                ", santaBudget=" + santaBudget
+                +
+                ", initialData=" + initialData
+                +
+                ", annualChanges=" + annualChanges
+                +
                 '}';
     }
 }

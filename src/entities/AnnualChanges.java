@@ -3,7 +3,7 @@ package entities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnnualChanges {
+public final class AnnualChanges {
     private double newSantaBudget;
     private List<Gift> newGifts;
     private List<Child> newChildren;
@@ -59,11 +59,16 @@ public class AnnualChanges {
 
     @Override
     public String toString() {
-        return "AnnualChanges{" +
-                "newSantaBudget=" + newSantaBudget +
-                ", newGifts=" + newGifts +
-                ", newChildren=" + newChildren +
-                ", childrenUpdates=" + childrenUpdates +
+        return "AnnualChanges{"
+                +
+                "newSantaBudget=" + newSantaBudget
+                +
+                ", newGifts=" + newGifts
+                +
+                ", newChildren=" + newChildren
+                +
+                ", childrenUpdates=" + childrenUpdates
+                +
                 '}';
     }
 }

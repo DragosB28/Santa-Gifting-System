@@ -2,7 +2,7 @@ package entities;
 
 import enums.Category;
 
-public class Gift {
+public final class Gift {
     private String productName;
     private double price;
     private Category category;
@@ -40,10 +40,15 @@ public class Gift {
 
     @Override
     public String toString() {
-        return "Gift{" +
-                "productName='" + productName + '\'' +
-                ", price=" + price +
-                ", category=" + category +
+        return "Gift{"
+                +
+                "productName='" + productName
+                + '\''
+                +
+                ", price=" + price
+                +
+                ", category=" + category
+                +
                 '}';
     }
 }

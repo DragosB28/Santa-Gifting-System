@@ -4,7 +4,7 @@ import enums.Category;
 
 import java.util.List;
 
-public class ChildUpdate {
+public final class ChildUpdate {
     private int id;
     private double niceScore;
     private List<Category> giftsPreferences;
@@ -42,10 +42,14 @@ public class ChildUpdate {
 
     @Override
     public String toString() {
-        return "ChildUpdate{" +
-                "id=" + id +
-                ", niceScore=" + niceScore +
-                ", giftsPreferences=" + giftsPreferences +
+        return "ChildUpdate{"
+                +
+                "id=" + id
+                +
+                ", niceScore=" + niceScore
+                +
+                ", giftsPreferences=" + giftsPreferences
+                +
                 '}';
     }
 }

@@ -1,6 +1,11 @@
 package jsonparser;
 
-import entities.*;
+import entities.Input;
+import entities.InitialData;
+import entities.AnnualChanges;
+import entities.Child;
+import entities.Gift;
+import entities.ChildUpdate;
 import enums.Category;
 import enums.Cities;
 import org.json.simple.JSONArray;
@@ -36,18 +41,12 @@ public class InputLoader {
             JSONObject jsonObject = (JSONObject) jsonParser
                     .parse(new FileReader(inputPath));
 
-            numberOfYears = Integer.parseInt(jsonObject.get("numberOfYears")
-                    .toString());
-            santaBudget = Double.parseDouble(jsonObject.get("santaBudget")
-                    .toString());
-            JSONObject initialDataJson = (JSONObject) jsonObject
-                    .get("initialData");
-            JSONArray childrenJson = (JSONArray) initialDataJson
-                    .get("children");
-            JSONArray santaGiftsListJson = (JSONArray) initialDataJson
-                    .get("santaGiftsList");
-            JSONArray annualChangesJson = (JSONArray) jsonObject
-                    .get("annualChanges");
+            numberOfYears = Integer.parseInt(jsonObject.get("numberOfYears").toString());
+            santaBudget = Double.parseDouble(jsonObject.get("santaBudget").toString());
+            JSONObject initialDataJson = (JSONObject) jsonObject.get("initialData");
+            JSONArray childrenJson = (JSONArray) initialDataJson.get("children");
+            JSONArray santaGiftsListJson = (JSONArray) initialDataJson.get("santaGiftsList");
+            JSONArray annualChangesJson = (JSONArray) jsonObject.get("annualChanges");
 
             //adaug in initialData.children
             if (childrenJson != null) {
@@ -64,8 +63,7 @@ public class InputLoader {
                                     .get("id").toString()),
                             (String) ((JSONObject) childJson).get("lastName"),
                             (String) ((JSONObject) childJson).get("firstName"),
-                            Integer.parseInt(((JSONObject) childJson)
-                                    .get("age").toString()),
+                            Integer.parseInt(((JSONObject) childJson).get("age").toString()),
                             Cities.valueOf((((JSONObject) childJson)
                                     .get("city")).toString().toUpperCase()
                                     .replace("CLUJ-NAPOCA", "CLUJ")),
@@ -80,8 +78,7 @@ public class InputLoader {
             if (santaGiftsListJson != null) {
                 for (Object santaGiftJson : santaGiftsListJson) {
                     initialData.addSantaGift(new Gift(
-                            (String) ((JSONObject) santaGiftJson)
-                                    .get("productName"),
+                            (String) ((JSONObject) santaGiftJson).get("productName"),
                             Double.parseDouble(((JSONObject) santaGiftJson)
                                     .get("price").toString()),
                             Category.valueOf(((JSONObject) santaGiftJson)
@@ -99,8 +96,7 @@ public class InputLoader {
                     List<Gift> newGifts = new ArrayList<>();
                     for (Object newGiftJson : newGiftsJson) {
                         newGifts.add(new Gift(
-                                (String) ((JSONObject) newGiftJson)
-                                        .get("productName"),
+                                (String) ((JSONObject) newGiftJson).get("productName"),
                                 Double.parseDouble(((JSONObject) newGiftJson)
                                         .get("price").toString()),
                                 Category.valueOf(((JSONObject) newGiftJson)
@@ -115,21 +111,16 @@ public class InputLoader {
                     List<Child> newChildren = new ArrayList<>();
                     for (Object newChildJson : newChildrenJson) {
                         JSONArray giftsPreferencesJson = (JSONArray)
-                                ((JSONObject) newChildJson)
-                                        .get("giftsPreferences");
+                                ((JSONObject) newChildJson).get("giftsPreferences");
                         List<Category> giftsPreferences = new ArrayList<>();
                         for (Object gift : giftsPreferencesJson) {
                             giftsPreferences.add(Category.valueOf(gift
-                                    .toString().toUpperCase()
-                                    .replace(" ", "_")));
+                                    .toString().toUpperCase().replace(" ", "_")));
                         }
                         newChildren.add(new Child(
-                                Integer.parseInt(((JSONObject) newChildJson)
-                                        .get("id").toString()),
-                                (String) ((JSONObject) newChildJson)
-                                        .get("lastName"),
-                                (String) ((JSONObject) newChildJson)
-                                        .get("firstName"),
+                                Integer.parseInt(((JSONObject) newChildJson).get("id").toString()),
+                                (String) ((JSONObject) newChildJson).get("lastName"),
+                                (String) ((JSONObject) newChildJson).get("firstName"),
                                 Integer.parseInt(((JSONObject) newChildJson)
                                         .get("age").toString()),
                                 Cities.valueOf((((JSONObject) newChildJson)
@@ -182,7 +173,6 @@ public class InputLoader {
                     ));
                 }
             }
-
         } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
