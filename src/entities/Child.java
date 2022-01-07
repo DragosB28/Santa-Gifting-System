@@ -1,4 +1,4 @@
-package jsonparser;
+package entities;
 
 import enums.AgeCategory;
 import enums.Category;
@@ -6,6 +6,7 @@ import enums.Cities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Child {
     private int id;
@@ -19,10 +20,11 @@ public class Child {
     private List<Double> niceScoreHistory;
     private double averageScore;
     private double firstAssignedBudget;
-    private double updatedAllocatedBudget;
     private List<Gift> receivedGifts;
 
-    public Child(int id, String lastName, String firstName, int age, Cities city, double niceScore, List<Category> giftsPreferences) {
+    public Child(final int id, final String lastName, final String firstName,
+                 final int age, final Cities city, final double niceScore,
+                 final List<Category> giftsPreferences) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -35,7 +37,6 @@ public class Child {
         this.niceScoreHistory.add(niceScore);
         this.averageScore = niceScore;
         this.firstAssignedBudget = 0;
-        this.updatedAllocatedBudget = 0;
         this.receivedGifts = new ArrayList<>();
     }
 
@@ -43,7 +44,7 @@ public class Child {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
     }
 
@@ -51,7 +52,7 @@ public class Child {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
 
@@ -59,7 +60,7 @@ public class Child {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
@@ -67,7 +68,7 @@ public class Child {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(final int age) {
         this.age = age;
     }
 
@@ -75,7 +76,7 @@ public class Child {
         return city;
     }
 
-    public void setCity(Cities city) {
+    public void setCity(final Cities city) {
         this.city = city;
     }
 
@@ -83,7 +84,7 @@ public class Child {
         return niceScore;
     }
 
-    public void setNiceScore(double niceScore) {
+    public void setNiceScore(final double niceScore) {
         this.niceScore = niceScore;
     }
 
@@ -91,31 +92,55 @@ public class Child {
         return giftsPreferences;
     }
 
-    public void setGiftsPreferences(List<Category> giftsPreferences) {
+    public void setGiftsPreferences(final List<Category> giftsPreferences) {
         this.giftsPreferences = giftsPreferences;
+    }
+
+    /**
+     * Adds a new list of gifts preferences at the beginning of the list,
+     * removing the duplicates at the same time
+     *
+     * @param newGiftsPreferences   received annually
+     */
+    public void addNewlyGiftsPreferencesAtBeginning(
+            List<Category> newGiftsPreferences) {
+        newGiftsPreferences = newGiftsPreferences.stream()
+                .distinct().collect(Collectors.toList());
+        for (Category newGiftPreference : newGiftsPreferences) {
+            this.giftsPreferences.remove(newGiftPreference);
+        }
+        this.giftsPreferences.addAll(0, newGiftsPreferences);
     }
 
     public AgeCategory getAgeCategory() {
         return ageCategory;
     }
 
-    public void setAgeCategory(AgeCategory ageCategory) {
-        this.ageCategory = ageCategory;
-    }
-
     public List<Double> getNiceScoreHistory() {
         return niceScoreHistory;
     }
 
-    public void setNiceScoreHistory(List<Double> niceScoreHistory) {
+    public void setNiceScoreHistory(final List<Double> niceScoreHistory) {
         this.niceScoreHistory = niceScoreHistory;
+    }
+
+    /**
+     * Adds a new nice score to the list. The inputLoader returns -1 in case
+     * of receiving null from the json
+     *
+     * @param newNiceScore  received annually
+     */
+    public void addNewNiceScore(final Double newNiceScore) {
+        if (newNiceScore != -1) {
+            this.niceScoreHistory.add(newNiceScore);
+        }
     }
 
     public double getAverageScore() {
         return averageScore;
     }
 
-    public void setAverageScore(double averageScore) {
+    public void setAverageScore(final double averageScore) {
         this.averageScore = averageScore;
     }
 
@@ -123,30 +148,30 @@ public class Child {
         return firstAssignedBudget;
     }
 
-    public void setFirstAssignedBudget(double firstAssignedBudget) {
+    public void setFirstAssignedBudget(final double firstAssignedBudget) {
         this.firstAssignedBudget = firstAssignedBudget;
-    }
-
-    public double getUpdatedAllocatedBudget() {
-        return updatedAllocatedBudget;
-    }
-
-    public void setUpdatedAllocatedBudget(double updatedAllocatedBudget) {
-        this.updatedAllocatedBudget = updatedAllocatedBudget;
     }
 
     public List<Gift> getReceivedGifts() {
         return receivedGifts;
     }
 
-    public void setReceivedGifts(List<Gift> receivedGifts) {
+    public void setReceivedGifts(final List<Gift> receivedGifts) {
         this.receivedGifts = receivedGifts;
     }
 
-    public void addReceivedGift(Gift gift) {
+    /**
+     * Adds one gift to the list of receivedGifts
+     *
+     * @param gift  to be added
+     */
+    public void addReceivedGift(final Gift gift) {
         this.receivedGifts.add(gift);
     }
 
+    /**
+     * Updates the age category of a child
+     */
     public void calculateAgeCategory() {
         if (this.age < 5) {
             this.ageCategory = AgeCategory.BABY;
@@ -159,6 +184,12 @@ public class Child {
         }
     }
 
+    /**
+     * Clears the list of received gifts
+     */
+    public void resetReceivedGifts() {
+        this.receivedGifts.clear();
+    }
 
 
     @Override

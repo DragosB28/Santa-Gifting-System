@@ -1,5 +1,6 @@
-package jsonparser;
+package entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AnnualChanges {
@@ -10,12 +11,14 @@ public class AnnualChanges {
 
     public AnnualChanges() {
         this.newSantaBudget = 0;
-        this.newGifts = null;
-        this.newChildren = null;
-        this.childrenUpdates = null;
+        this.newGifts = new ArrayList<>();
+        this.newChildren = new ArrayList<>();
+        this.childrenUpdates = new ArrayList<>();
     }
 
-    public AnnualChanges(double newSantaBudget, List<Gift> newGifts, List<Child> newChildren, List<ChildUpdate> childrenUpdates) {
+    public AnnualChanges(final double newSantaBudget, final List<Gift> newGifts,
+                         final List<Child> newChildren,
+                         final List<ChildUpdate> childrenUpdates) {
         this.newSantaBudget = newSantaBudget;
         this.newGifts = newGifts;
         this.newChildren = newChildren;
@@ -26,7 +29,7 @@ public class AnnualChanges {
         return newSantaBudget;
     }
 
-    public void setNewSantaBudget(int newSantaBudget) {
+    public void setNewSantaBudget(final int newSantaBudget) {
         this.newSantaBudget = newSantaBudget;
     }
 
@@ -34,7 +37,7 @@ public class AnnualChanges {
         return newGifts;
     }
 
-    public void setNewGifts(List<Gift> newGifts) {
+    public void setNewGifts(final List<Gift> newGifts) {
         this.newGifts = newGifts;
     }
 
@@ -42,7 +45,7 @@ public class AnnualChanges {
         return newChildren;
     }
 
-    public void setNewChildren(List<Child> newChildren) {
+    public void setNewChildren(final List<Child> newChildren) {
         this.newChildren = newChildren;
     }
 
@@ -50,7 +53,7 @@ public class AnnualChanges {
         return childrenUpdates;
     }
 
-    public void setChildrenUpdates(List<ChildUpdate> childrenUpdates) {
+    public void setChildrenUpdates(final List<ChildUpdate> childrenUpdates) {
         this.childrenUpdates = childrenUpdates;
     }
 

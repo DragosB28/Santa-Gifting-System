@@ -2,16 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/jsonparser/AnnualChildrenJsonWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jsonparser/ChildrenJsonWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jsonparser/Santa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Santa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jsonparser/Writer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proiect1/enums/CategoryEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/Child.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/jsonparser/Child.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/checkstyle.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/common/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/common/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/enums/AgeCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/enums/AgeCategory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/AnnualChanges.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/AnnualChildrenJsonWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/jsonparser/AnnualChildrenJsonWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/Child.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/ChildUpdate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/ChildrenJsonWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/jsonparser/ChildrenJsonWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/Gift.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/InitialData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/Input.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/InputLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/jsonparser/InputLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/Santa.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proiect1/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enums/CategoryEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/AgeCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jsonparser/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsonparser/Child.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/utils/utils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enums/AgeCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/AgeCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/AnnualChanges.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/AnnualChanges.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/AnnualChildrenJsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsonparser/AnnualChildrenJsonWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Child.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/ChildUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/ChildUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/ChildrenJsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsonparser/ChildrenJsonWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/Gift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Gift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/InitialData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/InitialData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/InputLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsonparser/InputLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/Santa.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +75,11 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="entities" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
@@ -86,6 +113,9 @@
       <workItem from="1641200804095" duration="14388000" />
       <workItem from="1641242583883" duration="2043000" />
       <workItem from="1641298309317" duration="16428000" />
+      <workItem from="1641401255000" duration="17480000" />
+      <workItem from="1641465817254" duration="17618000" />
+      <workItem from="1641553394819" duration="3217000" />
     </task>
     <servers />
   </component>

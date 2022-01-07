@@ -1,9 +1,18 @@
 package main;
 
+import checker.Checker;
 import com.fasterxml.jackson.databind.json.JsonMapper;
-import jsonparser.*;
+import entities.AnnualChanges;
+import entities.Input;
+import entities.Santa;
+import jsonparser.AnnualChildrenJsonWriter;
+import jsonparser.InputLoader;
+import jsonparser.Writer;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Class used to run the code
@@ -13,28 +22,55 @@ public final class Main {
     private Main() {
         ///constructor for checkstyle
     }
+
     /**
      * This method is used to call the checker which calculates the score
-     * @param args
-     *          the arguments used to call the main method
+     *
+     * @param args the arguments used to call the main method
      */
     public static void main(final String[] args) throws IOException {
-        //Checker.calculateScore();
 
-        InputLoader inputLoader = new InputLoader("C:\\Users\\barbu\\OneDrive\\Desktop\\SantaHW\\tests\\test2.json");
-        Input input = inputLoader.readData();
-        //System.out.println(input);
+        final File folder = new File("tests");
 
-        Santa santa = new Santa(input);
-        santa.solveRoundZero(input);
-        Child testChild = input.getInitialData().getChildren().get(0);
-        System.out.println(testChild.getReceivedGifts());
-        System.out.println(testChild.getAverageScore());
-        System.out.println(testChild.getUpdatedAllocatedBudget());
+        for (final File fileEntry : Objects.requireNonNull(folder.listFiles())) {
+            InputLoader inputLoader = new InputLoader(fileEntry.getPath());
+            Input input = inputLoader.readData();
 
-        System.out.println();
-        JsonMapper mapper = new JsonMapper();
-        String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(new AnnualChildrenJsonWriter(input.getInitialData().getChildren()));
-        System.out.println(jsonString);
+            Santa santa = new Santa(input);
+            santa.solveRoundZero(input);
+            Writer writer = new Writer();
+
+            AnnualChildrenJsonWriter annualChildrenJsonWriter =
+                    new AnnualChildrenJsonWriter();
+            annualChildrenJsonWriter.addListToJson(input.
+                    getInitialData().getChildren());
+            writer.addAnnualChildrenJsonList(annualChildrenJsonWriter);
+
+            for (AnnualChanges annualChange : input.getAnnualChanges()
+                    .subList(0, input.getNumberOfYears())) {
+                santa.solveOneYearRound(annualChange);
+                annualChildrenJsonWriter = new AnnualChildrenJsonWriter();
+                annualChildrenJsonWriter.addListToJson(input.getInitialData().
+                        getChildren());
+                writer.addAnnualChildrenJsonList(annualChildrenJsonWriter);
+            }
+
+            JsonMapper mapper = new JsonMapper();
+            String jsonString = mapper.writerWithDefaultPrettyPrinter()
+                    .writeValueAsString(writer);
+            try {
+                File file = new File(fileEntry.getPath()
+                        .replace("tests", "output")
+                        .replace("test", "out_"));
+                file.createNewFile();
+                FileWriter fileWriter = new FileWriter(file);
+                fileWriter.write(jsonString);
+                fileWriter.flush();
+                fileWriter.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        Checker.calculateScore();
     }
 }

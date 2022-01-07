@@ -1,15 +1,14 @@
-package jsonparser;
+package entities;
 
 import enums.Category;
-
-import java.util.List;
 
 public class Gift {
     private String productName;
     private double price;
     private Category category;
 
-    public Gift(String productName, double price, Category category) {
+    public Gift(final String productName, final double price,
+                final Category category) {
         this.productName = productName;
         this.price = price;
         this.category = category;
@@ -19,7 +18,7 @@ public class Gift {
         return productName;
     }
 
-    public void setProductName(String productName) {
+    public void setProductName(final String productName) {
         this.productName = productName;
     }
 
@@ -27,7 +26,7 @@ public class Gift {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(final double price) {
         this.price = price;
     }
 
@@ -35,7 +34,7 @@ public class Gift {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(final Category category) {
         this.category = category;
     }
 

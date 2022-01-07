@@ -1,16 +1,12 @@
-package jsonparser;
+package entities;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.List;
 
 public class Input {
-    private int numberOfYears;
-    private double santaBudget;
-    private InitialData initialData;
-    private List<AnnualChanges> annualChanges;
+    private final int numberOfYears;
+    private final double santaBudget;
+    private final InitialData initialData;
+    private final List<AnnualChanges> annualChanges;
 
     public Input() {
         this.numberOfYears = 0;

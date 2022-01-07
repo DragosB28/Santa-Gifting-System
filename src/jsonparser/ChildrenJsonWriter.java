@@ -1,53 +1,56 @@
 package jsonparser;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import entities.Child;
+import entities.Gift;
 import enums.Category;
 import enums.Cities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChildrenJsonWriter {
     @JsonProperty("id")
-    private int id;
+    private final int id;
 
     @JsonProperty("lastName")
-    private String lastName;
+    private final String lastName;
 
     @JsonProperty("firstName")
-    private String firstName;
+    private final String firstName;
 
     @JsonProperty("city")
-    private Cities city;
+    private final Cities city;
 
     @JsonProperty("age")
-    private int age;
+    private final int age;
 
     @JsonProperty("giftsPreferences")
-    private List<Category> giftsPreferences;
+    private final List<Category> giftsPreferences;
 
     @JsonProperty("averageScore")
-    private double averageScore;
+    private final double averageScore;
 
     @JsonProperty("niceScoreHistory")
-    private List<Double> niceScoreHistory;
+    private final List<Double> niceScoreHistory;
 
     @JsonProperty("assignedBudget")
-    private double assignedBudget;
+    private final double assignedBudget;
 
     @JsonProperty("receivedGifts")
-    private List<Gift> receivedGifts;
+    private final List<Gift> receivedGifts;
 
-    public ChildrenJsonWriter(Child child) {
+    public ChildrenJsonWriter(final Child child) {
         this.id = child.getId();
         this.lastName = child.getLastName();
         this.firstName = child.getFirstName();
         this.city = child.getCity();
         this.age = child.getAge();
-        this.giftsPreferences = child.getGiftsPreferences();
+        this.giftsPreferences = new ArrayList<>(child.getGiftsPreferences());
         this.averageScore = child.getAverageScore();
-        this.niceScoreHistory = child.getNiceScoreHistory();
+        this.niceScoreHistory = new ArrayList<>(child.getNiceScoreHistory());
         this.assignedBudget = child.getFirstAssignedBudget();
-        this.receivedGifts = child.getReceivedGifts();
+        this.receivedGifts = new ArrayList<>(child.getReceivedGifts());
     }
 }
 

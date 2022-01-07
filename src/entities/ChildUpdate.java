@@ -1,4 +1,4 @@
-package jsonparser;
+package entities;
 
 import enums.Category;
 
@@ -9,7 +9,8 @@ public class ChildUpdate {
     private double niceScore;
     private List<Category> giftsPreferences;
 
-    public ChildUpdate(int id, double niceScore, List<Category> giftsPreferences) {
+    public ChildUpdate(final int id, final double niceScore,
+                       final List<Category> giftsPreferences) {
         this.id = id;
         this.niceScore = niceScore;
         this.giftsPreferences = giftsPreferences;
@@ -19,7 +20,7 @@ public class ChildUpdate {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
     }
 
@@ -27,7 +28,7 @@ public class ChildUpdate {
         return niceScore;
     }
 
-    public void setNiceScore(double niceScore) {
+    public void setNiceScore(final double niceScore) {
         this.niceScore = niceScore;
     }
 
@@ -35,7 +36,7 @@ public class ChildUpdate {
         return giftsPreferences;
     }
 
-    public void setGiftsPreferences(List<Category> giftsPreferences) {
+    public void setGiftsPreferences(final List<Category> giftsPreferences) {
         this.giftsPreferences = giftsPreferences;
     }
 
