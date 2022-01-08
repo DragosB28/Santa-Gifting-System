@@ -7,13 +7,13 @@ import java.util.List;
 
 public final class Writer {
     @JsonProperty("annualChildren")
-    private List<AnnualChildrenJsonWriter> annualChildrenJsonWriter = new ArrayList<>();
+    private List<AnnualChildrenJsonWriter> annualChildrenJson = new ArrayList<>();
 
     /**
      * Writes the entire json file with a nice format
      * @param annualChildrenJsonWriter  to be written
      */
     public void addAnnualChildrenJsonList(final AnnualChildrenJsonWriter annualChildrenJsonWriter) {
-        this.annualChildrenJsonWriter.add(annualChildrenJsonWriter);
+        this.annualChildrenJson.add(annualChildrenJsonWriter);
     }
 }

@@ -4,8 +4,6 @@ Starting audit...
 [ERROR] C:\Users\barbu\OneDrive\Desktop\SantaHW\.\src\entities\Child.java:178:31: '12' is a magic number. [MagicNumber]
 [ERROR] C:\Users\barbu\OneDrive\Desktop\SantaHW\.\src\entities\Child.java:180:32: '18' is a magic number. [MagicNumber]
 [ERROR] C:\Users\barbu\OneDrive\Desktop\SantaHW\.\src\entities\Child.java:182:31: '18' is a magic number. [MagicNumber]
-[ERROR] C:\Users\barbu\OneDrive\Desktop\SantaHW\.\src\entities\Santa.java:34:44: 'input' hides a field. [HiddenField]
 [ERROR] C:\Users\barbu\OneDrive\Desktop\SantaHW\.\src\entities\Santa.java:63:39: '10' is a magic number. [MagicNumber]
-[ERROR] C:\Users\barbu\OneDrive\Desktop\SantaHW\.\src\jsonparser\Writer.java:16:74: 'annualChildrenJsonWriter' hides a field. [HiddenField]
 Audit done.
-Checkstyle ends with 8 errors.
+Checkstyle ends with 6 errors.

@@ -8,14 +8,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Santa {
-    private final Input input;
+    private final Input inp;
     private List<Child> children;
     private final List<Gift> santaGiftsList;
     private double santaBudget;
     private double budgetUnit;
 
     public Santa(final Input input) {
-        this.input = input;
+        this.inp = input;
         if (input.getInitialData().getChildren() == null) {
             this.children = new ArrayList<>();
         } else {
