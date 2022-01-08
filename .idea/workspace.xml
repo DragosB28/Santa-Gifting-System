@@ -2,12 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scorefactory/AverageScoreFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scorefactory/AverageScoreStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scorefactory/BabyScoreStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scorefactory/KidScoreStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scorefactory/TeenScoreStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/checkstyle.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/common/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/common/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/entities/Child.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/entities/Child.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proiect1/entities/Santa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/entities/Santa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/Writer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/jsonparser/Writer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/AnnualChildrenJsonWriter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/ChildrenJsonWriter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/InputLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/jsonparser/Writer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proiect1/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Child.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Santa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Santa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jsonparser/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsonparser/Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/AnnualChildrenJsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/AnnualChildrenJsonWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/ChildrenJsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/ChildrenJsonWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/InputLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/InputLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jsonparser/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +35,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -90,7 +109,7 @@
       <workItem from="1641401255000" duration="17480000" />
       <workItem from="1641465817254" duration="17618000" />
       <workItem from="1641553394819" duration="7892000" />
-      <workItem from="1641665372799" duration="326000" />
+      <workItem from="1641665372799" duration="8485000" />
     </task>
     <servers />
   </component>

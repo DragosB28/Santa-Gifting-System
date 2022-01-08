@@ -1,9 +1,4 @@
 Starting audit...
-[ERROR] C:\Users\barbu\OneDrive\Desktop\SantaHW\.\src\entities\Child.java:106:13: Parameter newGiftsPreferences should be final. [FinalParameters]
-[ERROR] C:\Users\barbu\OneDrive\Desktop\SantaHW\.\src\entities\Child.java:176:24: '5' is a magic number. [MagicNumber]
-[ERROR] C:\Users\barbu\OneDrive\Desktop\SantaHW\.\src\entities\Child.java:178:31: '12' is a magic number. [MagicNumber]
-[ERROR] C:\Users\barbu\OneDrive\Desktop\SantaHW\.\src\entities\Child.java:180:32: '18' is a magic number. [MagicNumber]
-[ERROR] C:\Users\barbu\OneDrive\Desktop\SantaHW\.\src\entities\Child.java:182:31: '18' is a magic number. [MagicNumber]
-[ERROR] C:\Users\barbu\OneDrive\Desktop\SantaHW\.\src\entities\Santa.java:63:39: '10' is a magic number. [MagicNumber]
+[ERROR] C:\Users\barbu\OneDrive\Desktop\SantaHW\.\src\entities\Child.java:107:13: Parameter newGiftsPreferences should be final. [FinalParameters]
 Audit done.
-Checkstyle ends with 6 errors.
+Checkstyle ends with 1 errors.

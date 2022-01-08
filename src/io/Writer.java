@@ -1,4 +1,4 @@
-package jsonparser;
+package io;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

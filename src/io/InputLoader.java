@@ -1,4 +1,4 @@
-package jsonparser;
+package io;
 
 import entities.Input;
 import entities.InitialData;
@@ -48,7 +48,7 @@ public class InputLoader {
             JSONArray santaGiftsListJson = (JSONArray) initialDataJson.get("santaGiftsList");
             JSONArray annualChangesJson = (JSONArray) jsonObject.get("annualChanges");
 
-            //adaug in initialData.children
+            //adding to initialData.children
             if (childrenJson != null) {
                 for (Object childJson : childrenJson) {
                     JSONArray giftsPreferencesJson = (JSONArray)
@@ -74,7 +74,7 @@ public class InputLoader {
                 }
             }
 
-            //adaug in initialData.santaGiftsList
+            //adding to initialData.santaGiftsList
             if (santaGiftsListJson != null) {
                 for (Object santaGiftJson : santaGiftsListJson) {
                     initialData.addSantaGift(new Gift(
@@ -90,7 +90,7 @@ public class InputLoader {
 
             if (annualChangesJson != null) {
                 for (Object annualChangeJson : annualChangesJson) {
-                    //Adaug in annualChange lista de noi cadouri
+                    //adding to annualChange the list of new gifts
                     JSONArray newGiftsJson = (JSONArray) ((JSONObject)
                             annualChangeJson).get("newGifts");
                     List<Gift> newGifts = new ArrayList<>();
@@ -105,7 +105,7 @@ public class InputLoader {
                         ));
                     }
 
-                    //Adaug in annualChange lista de noi copii
+                    //adding to annualChange the list of new children
                     JSONArray newChildrenJson = (JSONArray) ((JSONObject)
                             annualChangeJson).get("newChildren");
                     List<Child> newChildren = new ArrayList<>();
@@ -132,7 +132,7 @@ public class InputLoader {
                         ));
                     }
 
-                    //Adaug in annualChange lista de childrenUpdates
+                    //adding to annualChange the list of childrenUpdates
                     JSONArray childrenUpdatesJson = (JSONArray) ((JSONObject)
                             annualChangeJson).get("childrenUpdates");
                     List<ChildUpdate> childrenUpdates = new ArrayList<>();
@@ -146,7 +146,7 @@ public class InputLoader {
                                     valueOf(newGiftPreferenceJson.toString()
                                             .toUpperCase().replace(" ", "_")));
                         }
-                        //Urmatorul if este facut pentru a evita cazul in care .get returneaza null
+                        //the following if is used to avoid the case of .get returning null
                         double niceScore;
                         if (((JSONObject) childUpdatesJson).
                                 get("niceScore") == null) {

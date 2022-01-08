@@ -2,20 +2,22 @@ package entities;
 
 import enums.AgeCategory;
 import enums.Category;
+import scorefactory.AverageScoreFactory;
+import scorefactory.AverageScoreStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Santa {
-    private final Input inp;
+    private final Input in;
     private List<Child> children;
     private final List<Gift> santaGiftsList;
     private double santaBudget;
     private double budgetUnit;
 
     public Santa(final Input input) {
-        this.inp = input;
+        this.in = input;
         if (input.getInitialData().getChildren() == null) {
             this.children = new ArrayList<>();
         } else {
@@ -33,7 +35,7 @@ public class Santa {
      */
     public void solveRoundZero(final Input input) {
         this.checkAgeRestriction();
-        this.calculateAverageScore();
+        this.calculateAverageScoreForAllChildren();
         this.calculateBudgetUnit();
         this.calculateAllocatedBudget();
         this.decideGiftsPerChild();
@@ -55,31 +57,37 @@ public class Santa {
     /**
      * Calculates the average score of each child
      */
-    public void calculateAverageScore() {
+    public void calculateAverageScoreForAllChildren() {
+//        for (Child child : children) {
+//            double averageScore;
+//            AgeCategory ageCategory = child.getAgeCategory();
+//            if (ageCategory == AgeCategory.BABY) {
+//                child.setAverageScore(10);
+//            } else if (ageCategory == AgeCategory.KID) {
+//                double sum = 0;
+//                for (double amount : child.getNiceScoreHistory()) {
+//                    sum += amount;
+//                }
+//                averageScore = sum / (double) child.getNiceScoreHistory().size();
+//                child.setAverageScore(averageScore);
+//            } else if (ageCategory == AgeCategory.TEEN) {
+//                double sum = 0;
+//                double sumOfIndex = 0;
+//                for (int i = 1; i <= child.getNiceScoreHistory().size(); i++) {
+//                    sum += child.getNiceScoreHistory().get(i - 1) * i;
+//                    sumOfIndex += i;
+//                }
+//                double newAverageScore = sum / sumOfIndex;
+//                child.setAverageScore(newAverageScore);
+//            }
+//        }
+        AverageScoreFactory factory = AverageScoreFactory.getAverageScoreFactory();
+        AverageScoreStrategy strategy;
         for (Child child : children) {
-            double averageScore;
-            AgeCategory ageCategory = child.getAgeCategory();
-            if (ageCategory == AgeCategory.BABY) {
-                child.setAverageScore(10);
-            } else if (ageCategory == AgeCategory.KID) {
-                double sum = 0;
-                for (double amount : child.getNiceScoreHistory()) {
-                    sum += amount;
-                }
-                averageScore = sum / (double) child.getNiceScoreHistory().size();
-                child.setAverageScore(averageScore);
-            } else if (ageCategory == AgeCategory.TEEN) {
-                double sum = 0;
-                double sumOfIndex = 0;
-                for (int i = 1; i <= child.getNiceScoreHistory().size(); i++) {
-                    sum += child.getNiceScoreHistory().get(i - 1) * i;
-                    sumOfIndex += i;
-                }
-                double newAverageScore = sum / sumOfIndex;
-                child.setAverageScore(newAverageScore);
-            }
+            strategy = factory.makeStrategy(child.getAgeCategory());
+            double averageScore = strategy.calculateAverageScore(child.getNiceScoreHistory());
+            child.setAverageScore(averageScore);
         }
-
     }
 
     /**
@@ -153,7 +161,7 @@ public class Santa {
         this.addNewGiftsPreferences(annualChange.getChildrenUpdates());
         this.addNewSantaGifts(annualChange.getNewGifts());
         this.updateSantaBudget(annualChange.getNewSantaBudget());
-        this.calculateAverageScore();
+        this.calculateAverageScoreForAllChildren();
         this.calculateBudgetUnit();
         this.calculateAllocatedBudget();
         this.resetAllPreviousGifts();

@@ -5,9 +5,9 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 import entities.AnnualChanges;
 import entities.Input;
 import entities.Santa;
-import jsonparser.AnnualChildrenJsonWriter;
-import jsonparser.InputLoader;
-import jsonparser.Writer;
+import io.AnnualChildrenJsonWriter;
+import io.InputLoader;
+import io.Writer;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -38,8 +38,8 @@ public final class Main {
 
             Santa santa = new Santa(input);
             santa.solveRoundZero(input);
-            Writer writer = new Writer();
 
+            Writer writer = new Writer();
             AnnualChildrenJsonWriter annualChildrenJsonWriter =
                     new AnnualChildrenJsonWriter();
             annualChildrenJsonWriter.addListToJson(input.

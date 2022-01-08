@@ -1,0 +1,83 @@
+Barbu Dragos Sorin
+Proiect Etapa I
+
+Structura proiect:
+In main incepe executia programului. InputLoader-ul este responsabil de a citi un fisier json si a popula un obiect de
+tip Input cu toate datele necesare. Parcurg lista de teste, la fiecare avand un nou santa care se ocupa de rezolvarea
+logicii. Dupa ce rezolv prima runda, adaug rezultatul intr-un writer. Pe urma, parcurg fiecare annual change(in functie
+de numarul de ani, altfel daca as folosi un simplu for each, intr-un test este cu un annual change in plus) si rezolv
+fiecare an, adaugand in writer. La final, ma folosesc de jackson pentru a printa datele incarcate in writer in fisierele
+de output.
+
+Pachetul io:
+-InputLoader:
+Clasa ce se ocupa cu citirea unui fisier json. Metoda readData parcurge intreg fisierul json, colectand datele din
+fiecare camp, iar mai apoi le incarca in mai multe obiecte: initialData, annualChange, iar la final returneaza un
+obiect de tip Input.
+
+-ChildrenJsonWriter:
+Contine toate campurile unui obiect de tip child ce necesita a fi printate la output.
+
+-AnnualChildrenJsonWriter:
+Contine o lista de ChildrenJsonWriter, se ocupa de printarea cuvantului "children" in fisierul de output. In plus,
+prezinta metoda addListToJson, pentru a adauga copiii din acelasi an.
+
+-Writer:
+Contine o lista de AnnualChildrenJsonWriter, se ocupa de printarea cuvantului "annualChildren" in fisierul de output.
+In plus, prezinta metoda addAnnualChildrenJsonList, folosita pentru a adauga in output fiecare annual update.
+
+
+Pachetul entities:
+Contine toate entitatile din proiect: ChildUpdate, Child, Gift, InitialData, AnnualChange, Input si Santa.
+
+-ChildUpdate:
+Contine campurile aferente unui child update din json.
+
+-Child:
+Contine toate campurile aferente unui child din json si toate informatiile aferente unui copil. La instantierea unui
+nou obiect de tip child, se calculeaza automat categoria de varsta a acestuia. Pe langa gettere si settere, avem
+metodele suplimentare: addNewlyGiftsPreferencesAtBeginning, setNiceScoreHistory, addNewNiceScore, setReceivedGifts,
+addReceivedGift, calculateAgeCategory, resetReceivedGifts, fiecare cu explicatia atasata in javadoc.
+
+-Gift:
+Contine toate campurile aferente unui cadou din json.
+
+-InitialData:
+Contine o lista de Child si o lista de Gift, aferente datelor din json. Pe langa gettere si settere, avem metodele
+suplimentare addChild si addSantaGift, fiecare cu explicatia atasata in javadoc.
+
+-AnnualChanges:
+Contine toate datele aferente unui annual change din json.
+
+-Input:
+Inglobeaza toate datele primite din fisierul json de intrare: numarul de ani pe care se desfasoara simularea, bugetul
+lui Santa, Initial data si lista de schimbari din fiecare an.
+
+-Santa:
+Aceasta clasa reprezinta creierul proiectului, se ocupa de logica atribuirii de cadouri. Metodele principale sunt:
+solveRoundZero si solveOneYearRound. Restul de metode implementate pregatesc datele si aplica logica necesara. Acestea
+au explicatiile atasate in javadoc.
+
+Pentru a rezolva runda zero, mai intai verific restrictia de varsta pentru a elimina copiii cu varsta de peste 18 ani,
+calculez pentru fiecare copil average score-ul, budget unit-ul, apoi aloc cate un buget pentru fiecare copil si la final
+atribui cadourile.
+
+Pentru a rezolva fiecare annual change, incrementez la inceput varsta tuturor copiilor, adaug lista noua de copii,
+updatez categoria de varsta a tuturor copiilor, elimin copiii cu varsta de peste 18 ani, adaug noile nice score-uri,
+noile cadouri, updatez bugetul mosului, calculez average score-ul pt fiecare copil, updatez budget unit-ul si bugetul
+alocat fiecarui copil, sterg lista veche de cadouri primite si atribui noile cadouri.
+
+Pentru a decide ce cadouri primeste fiecare copil, in metoda decideGiftsPerChild parcurg lista de copii, iar pentru
+fiecare categorie din lista de preferinte, caut cadoul disponibil cu cel mai mic pret. Daca acesta exista, nu depaseste
+bugetul alocat pe copil, si copilul nu a primit deja acel cadou, i-l atribui si updatez bugetul ramas.
+
+Pachetul enums:
+Am adaugat pe langa Category si Cities, un enum cu categoriile de varsta.
+
+Pachetul scorefactory:
+Contine un factory implementat ca singleton, responsabil cu decizia carui strategy aplic la momentul calcularii average
+score-ului fiecarui copil, in functie de categoria sa de varsta. Astfel, formez interfata AverageScoreStrategy, cu
+metoda calculateAverageScore ce primeste o lista de nicescore-uri. Implementez restul de strategii care aplica
+algoritmii corespunzatori fiecarui copil pentru a calcula average score-ul sau. Aceste strategii sunt utile in metoda
+calculateAverageScoreForAllChildren din clasa Santa, in care parcurg fiecare copil din lista si aplic strategia necesara
+fiecaruia, in functie de AgeCategory.

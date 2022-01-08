@@ -1,5 +1,6 @@
 package entities;
 
+import common.Constants;
 import enums.AgeCategory;
 import enums.Category;
 import enums.Cities;
@@ -173,13 +174,14 @@ public final class Child {
      * Updates the age category of a child
      */
     public void calculateAgeCategory() {
-        if (this.age < 5) {
+        if (this.age < Constants.BABY_AGE_LIMIT) {
             this.ageCategory = AgeCategory.BABY;
-        } else if (this.age < 12) {
+        } else if (this.age < Constants.KID_AGE_LIMIT) {
             this.ageCategory = AgeCategory.KID;
-        } else if (this.age <= 18) {
+        } else if (this.age <= Constants.TEEN_AGE_LIMIT) {
             this.ageCategory = AgeCategory.TEEN;
-        } else if (this.age > 18) {
+        } else if (this.age > Constants.TEEN_AGE_LIMIT
+        ) {
             this.ageCategory = AgeCategory.YOUNG_ADULT;
         }
     }
