@@ -4,6 +4,7 @@ import common.Constants;
 import enums.AgeCategory;
 import enums.Category;
 import enums.Cities;
+import enums.ElvesType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,8 @@ public final class Child {
     private Cities city;
     private double niceScore;
     private List<Category> giftsPreferences;
+    private double niceScoreBonus;
+    private ElvesType elvesType;
     private AgeCategory ageCategory;
     private List<Double> niceScoreHistory;
     private double averageScore;
@@ -25,7 +28,7 @@ public final class Child {
 
     public Child(final int id, final String lastName, final String firstName,
                  final int age, final Cities city, final double niceScore,
-                 final List<Category> giftsPreferences) {
+                 final List<Category> giftsPreferences, final double niceScoreBonus, final ElvesType elvesType) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -34,6 +37,8 @@ public final class Child {
         this.niceScore = niceScore;
         this.giftsPreferences = giftsPreferences;
         calculateAgeCategory();
+        this.niceScoreBonus = niceScoreBonus;
+        this.elvesType = elvesType;
         this.niceScoreHistory = new ArrayList<>();
         this.niceScoreHistory.add(niceScore);
         this.averageScore = niceScore;
@@ -95,6 +100,22 @@ public final class Child {
 
     public void setGiftsPreferences(final List<Category> giftsPreferences) {
         this.giftsPreferences = giftsPreferences;
+    }
+
+    public double getNiceScoreBonus() {
+        return niceScoreBonus;
+    }
+
+    public void setNiceScoreBonus(double niceScoreBonus) {
+        this.niceScoreBonus = niceScoreBonus;
+    }
+
+    public ElvesType getElvesType() {
+        return elvesType;
+    }
+
+    public void setElvesType(ElvesType elvesType) {
+        this.elvesType = elvesType;
     }
 
     /**
@@ -196,24 +217,21 @@ public final class Child {
 
     @Override
     public String toString() {
-        return "Child{"
-                +
-                "id=" + id
-                +
-                ", lastName='" + lastName
-                + '\''
-                +
-                ", firstName='" + firstName
-                + '\''
-                +
-                ", age=" + age
-                +
-                ", city=" + city
-                +
-                ", niceScore=" + niceScore
-                +
-                ", giftsPreferences=" + giftsPreferences
-                +
+        return "Child{" +
+                "id=" + id +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", age=" + age +
+                ", city=" + city +
+                ", niceScore=" + niceScore +
+                ", giftsPreferences=" + giftsPreferences +
+                ", niceScoreBonus=" + niceScoreBonus +
+                ", elvesType=" + elvesType +
+                ", ageCategory=" + ageCategory +
+                ", niceScoreHistory=" + niceScoreHistory +
+                ", averageScore=" + averageScore +
+                ", firstAssignedBudget=" + firstAssignedBudget +
+                ", receivedGifts=" + receivedGifts +
                 '}';
     }
 }

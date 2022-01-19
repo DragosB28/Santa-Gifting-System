@@ -1,17 +1,21 @@
 package entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import enums.Category;
 
 public final class Gift {
     private String productName;
     private double price;
     private Category category;
+    @JsonIgnore
+    private int quantity;
 
     public Gift(final String productName, final double price,
-                final Category category) {
+                final Category category, final int quantity) {
         this.productName = productName;
         this.price = price;
         this.category = category;
+        this.quantity = quantity;
     }
 
     public String getProductName() {
@@ -38,17 +42,25 @@ public final class Gift {
         this.category = category;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void decrementQuantity() {
+        this.quantity -= 1;
+    }
+
     @Override
     public String toString() {
-        return "Gift{"
-                +
-                "productName='" + productName
-                + '\''
-                +
-                ", price=" + price
-                +
-                ", category=" + category
-                +
+        return "Gift{" +
+                "productName='" + productName + '\'' +
+                ", price=" + price +
+                ", category=" + category +
+                ", quantity=" + quantity +
                 '}';
     }
 }

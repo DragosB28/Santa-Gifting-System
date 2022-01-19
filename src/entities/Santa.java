@@ -1,7 +1,13 @@
 package entities;
 
+import assignfactory.AssignStrategy;
+import assignfactory.AssignStrategyFactory;
+import elffactory.ElfActionFactory;
+import elffactory.ElfActionStrategy;
 import enums.AgeCategory;
 import enums.Category;
+import enums.CityStrategyEnum;
+import enums.ElvesType;
 import scorefactory.AverageScoreFactory;
 import scorefactory.AverageScoreStrategy;
 
@@ -38,7 +44,9 @@ public class Santa {
         this.calculateAverageScoreForAllChildren();
         this.calculateBudgetUnit();
         this.calculateAllocatedBudget();
+        this.applyBPWElf();
         this.decideGiftsPerChild();
+        this.applyYElf();
     }
 
     /**
@@ -58,35 +66,17 @@ public class Santa {
      * Calculates the average score of each child
      */
     public void calculateAverageScoreForAllChildren() {
-//        for (Child child : children) {
-//            double averageScore;
-//            AgeCategory ageCategory = child.getAgeCategory();
-//            if (ageCategory == AgeCategory.BABY) {
-//                child.setAverageScore(10);
-//            } else if (ageCategory == AgeCategory.KID) {
-//                double sum = 0;
-//                for (double amount : child.getNiceScoreHistory()) {
-//                    sum += amount;
-//                }
-//                averageScore = sum / (double) child.getNiceScoreHistory().size();
-//                child.setAverageScore(averageScore);
-//            } else if (ageCategory == AgeCategory.TEEN) {
-//                double sum = 0;
-//                double sumOfIndex = 0;
-//                for (int i = 1; i <= child.getNiceScoreHistory().size(); i++) {
-//                    sum += child.getNiceScoreHistory().get(i - 1) * i;
-//                    sumOfIndex += i;
-//                }
-//                double newAverageScore = sum / sumOfIndex;
-//                child.setAverageScore(newAverageScore);
-//            }
-//        }
         AverageScoreFactory factory = AverageScoreFactory.getAverageScoreFactory();
         AverageScoreStrategy strategy;
         for (Child child : children) {
             strategy = factory.makeStrategy(child.getAgeCategory());
             double averageScore = strategy.calculateAverageScore(child.getNiceScoreHistory());
-            child.setAverageScore(averageScore);
+            averageScore += (double) (averageScore * child.getNiceScoreBonus() / 100);
+            if (averageScore > 10) {
+                child.setAverageScore(10);
+            } else {
+                child.setAverageScore(averageScore);
+            }
         }
     }
 
@@ -129,7 +119,7 @@ public class Santa {
                 double auxPrice;
                 Gift chosenGift = null;
                 for (Gift santaGift : this.santaGiftsList) {
-                    if (santaGift.getCategory() == giftType) {
+                    if (santaGift.getCategory() == giftType && santaGift.getQuantity() > 0) {
                         auxPrice = santaGift.getPrice();
                         if (auxPrice < minPrice) {
                             minPrice = auxPrice;
@@ -141,6 +131,7 @@ public class Santa {
                         compare(remainingBudget, chosenGift.getPrice()) > 0)
                         && !child.getReceivedGifts().contains(chosenGift)) {
                     child.addReceivedGift(chosenGift);
+                    chosenGift.decrementQuantity();
                     remainingBudget = remainingBudget - chosenGift.getPrice();
                 }
             }
@@ -160,12 +151,19 @@ public class Santa {
         this.addNewNiceScoreToList(annualChange.getChildrenUpdates());
         this.addNewGiftsPreferences(annualChange.getChildrenUpdates());
         this.addNewSantaGifts(annualChange.getNewGifts());
+        this.updateElfType(annualChange.getChildrenUpdates());
         this.updateSantaBudget(annualChange.getNewSantaBudget());
         this.calculateAverageScoreForAllChildren();
         this.calculateBudgetUnit();
         this.calculateAllocatedBudget();
+        this.applyAssignStrategy(annualChange.getCityStrategyEnum());
+
+
+
+        this.applyBPWElf();
         this.resetAllPreviousGifts();
         this.decideGiftsPerChild();
+        this.applyYElf();
     }
 
     /**
@@ -257,5 +255,60 @@ public class Santa {
         for (Child child : children) {
             child.resetReceivedGifts();
         }
+    }
+
+    public void updateElfType(final List<ChildUpdate> childUpdates) {
+        for (ChildUpdate childUpdate : childUpdates) {
+            for (Child child : children) {
+                if (child.getId() == childUpdate.getId()) {
+                    child.setElvesType(childUpdate.getElvesType());
+                    break;
+                }
+            }
+        }
+    }
+
+    public void applyBPWElf() {
+        ElfActionFactory factory = ElfActionFactory.getElfActionFactory();
+        ElfActionStrategy elfActionStrategy;
+
+        for (Child child : children) {
+            if (child.getElvesType() == ElvesType.YELLOW) {
+               continue;
+            } else {
+                elfActionStrategy = factory.makeElfStrategy(child.getElvesType());
+                elfActionStrategy.applyElf(child, santaGiftsList);
+            }
+        }
+    }
+
+    public void applyYElf() {
+        ElfActionFactory factory = ElfActionFactory.getElfActionFactory();
+        ElfActionStrategy elfActionStrategy;
+
+        for (Child child : children) {
+            if (child.getElvesType() == ElvesType.YELLOW) {
+                elfActionStrategy = factory.makeElfStrategy(ElvesType.YELLOW);
+                elfActionStrategy.applyElf(child, santaGiftsList);
+            }
+        }
+    }
+
+    public void applyAssignStrategy(final CityStrategyEnum cityStrategyEnum) {
+        AssignStrategyFactory factory = AssignStrategyFactory.getAssignStrategyFactory();
+        AssignStrategy assignStrategy;
+        System.out.println(children);
+        assignStrategy = factory.makeAssignStrategy(cityStrategyEnum);
+        assignStrategy.order(this);
+        System.out.println(children);
+        System.out.println();
+    }
+
+    public List<Child> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Child> children) {
+        this.children = children;
     }
 }

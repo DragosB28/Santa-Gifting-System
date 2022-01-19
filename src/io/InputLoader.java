@@ -8,6 +8,8 @@ import entities.Gift;
 import entities.ChildUpdate;
 import enums.Category;
 import enums.Cities;
+import enums.CityStrategyEnum;
+import enums.ElvesType;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -69,7 +71,10 @@ public class InputLoader {
                                     .replace("CLUJ-NAPOCA", "CLUJ")),
                             Double.parseDouble(((JSONObject) childJson)
                                     .get("niceScore").toString()),
-                            giftsPreferences
+                            giftsPreferences,
+                            Double.parseDouble(((JSONObject) childJson)
+                                    .get("niceScoreBonus").toString()),
+                            ElvesType.valueOf(((JSONObject) childJson).get("elf").toString().toUpperCase())
                     ));
                 }
             }
@@ -83,7 +88,9 @@ public class InputLoader {
                                     .get("price").toString()),
                             Category.valueOf(((JSONObject) santaGiftJson)
                                     .get("category").toString().toUpperCase()
-                                    .replace(" ", "_"))
+                                    .replace(" ", "_")),
+                            Integer.parseInt(((JSONObject) santaGiftJson)
+                                    .get("quantity").toString())
                     ));
                 }
             }
@@ -101,7 +108,9 @@ public class InputLoader {
                                         .get("price").toString()),
                                 Category.valueOf(((JSONObject) newGiftJson)
                                         .get("category").toString()
-                                        .toUpperCase().replace(" ", "_"))
+                                        .toUpperCase().replace(" ", "_")),
+                                Integer.parseInt(((JSONObject) newGiftJson)
+                                        .get("quantity").toString())
                         ));
                     }
 
@@ -128,7 +137,10 @@ public class InputLoader {
                                         .replace("CLUJ-NAPOCA", "CLUJ")),
                                 Double.parseDouble(((JSONObject) newChildJson)
                                         .get("niceScore").toString()),
-                                giftsPreferences
+                                giftsPreferences,
+                                Double.parseDouble(((JSONObject) newChildJson)
+                                        .get("niceScoreBonus").toString()),
+                                ElvesType.valueOf(((JSONObject) newChildJson).get("elf").toString().toUpperCase())
                         ));
                     }
 
@@ -160,7 +172,8 @@ public class InputLoader {
                                 Integer.parseInt(((JSONObject) childUpdatesJson)
                                         .get("id").toString()),
                                 niceScore,
-                                newGiftsPreferences
+                                newGiftsPreferences,
+                                ElvesType.valueOf(((JSONObject) childUpdatesJson).get("elf").toString().toUpperCase())
                         ));
                     }
 
@@ -169,7 +182,8 @@ public class InputLoader {
                                     .get("newSantaBudget").toString()),
                             newGifts,
                             newChildren,
-                            childrenUpdates
+                            childrenUpdates,
+                            CityStrategyEnum.valueOf(((JSONObject) annualChangeJson).get("strategy").toString().toUpperCase().replace("NICESCORECITY", "NICE_SCORE_CITY").replace("NICESCORE", "NICE_SCORE"))
                     ));
                 }
             }

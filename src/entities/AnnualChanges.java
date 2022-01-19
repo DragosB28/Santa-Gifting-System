@@ -1,5 +1,7 @@
 package entities;
 
+import enums.CityStrategyEnum;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,21 +10,24 @@ public final class AnnualChanges {
     private List<Gift> newGifts;
     private List<Child> newChildren;
     private List<ChildUpdate> childrenUpdates;
+    private CityStrategyEnum cityStrategyEnum;
 
     public AnnualChanges() {
         this.newSantaBudget = 0;
         this.newGifts = new ArrayList<>();
         this.newChildren = new ArrayList<>();
         this.childrenUpdates = new ArrayList<>();
+        this.cityStrategyEnum = null;
     }
 
     public AnnualChanges(final double newSantaBudget, final List<Gift> newGifts,
                          final List<Child> newChildren,
-                         final List<ChildUpdate> childrenUpdates) {
+                         final List<ChildUpdate> childrenUpdates, final CityStrategyEnum cityStrategyEnum) {
         this.newSantaBudget = newSantaBudget;
         this.newGifts = newGifts;
         this.newChildren = newChildren;
         this.childrenUpdates = childrenUpdates;
+        this.cityStrategyEnum = cityStrategyEnum;
     }
 
     public double getNewSantaBudget() {
@@ -57,18 +62,22 @@ public final class AnnualChanges {
         this.childrenUpdates = childrenUpdates;
     }
 
+    public CityStrategyEnum getCityStrategyEnum() {
+        return cityStrategyEnum;
+    }
+
+    public void setCityStrategyEnum(CityStrategyEnum cityStrategyEnum) {
+        this.cityStrategyEnum = cityStrategyEnum;
+    }
+
     @Override
     public String toString() {
-        return "AnnualChanges{"
-                +
-                "newSantaBudget=" + newSantaBudget
-                +
-                ", newGifts=" + newGifts
-                +
-                ", newChildren=" + newChildren
-                +
-                ", childrenUpdates=" + childrenUpdates
-                +
+        return "AnnualChanges{" +
+                "newSantaBudget=" + newSantaBudget +
+                ", newGifts=" + newGifts +
+                ", newChildren=" + newChildren +
+                ", childrenUpdates=" + childrenUpdates +
+                ", cityStrategyEnum=" + cityStrategyEnum +
                 '}';
     }
 }
