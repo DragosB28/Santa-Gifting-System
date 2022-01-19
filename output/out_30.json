@@ -601,6 +601,36 @@
         "price" : 20.0,
         "category" : "Toys"
       } ]
+    }, {
+      "id" : 8,
+      "lastName" : "Pop",
+      "firstName" : "Tudor",
+      "city" : "Bucuresti",
+      "age" : 11,
+      "giftsPreferences" : [ "Sweets" ],
+      "averageScore" : 10.0,
+      "niceScoreHistory" : [ 10.0 ],
+      "assignedBudget" : 141.15084700188223,
+      "receivedGifts" : [ {
+        "productName" : "Milk and Cookies",
+        "price" : 30.0,
+        "category" : "Sweets"
+      } ]
+    }, {
+      "id" : 9,
+      "lastName" : "Mihalache",
+      "firstName" : "Radu",
+      "city" : "Cluj-Napoca",
+      "age" : 4,
+      "giftsPreferences" : [ "Toys", "Clothes" ],
+      "averageScore" : 10.0,
+      "niceScoreHistory" : [ 10.0 ],
+      "assignedBudget" : 76.00430223178273,
+      "receivedGifts" : [ {
+        "productName" : "Car",
+        "price" : 20.0,
+        "category" : "Toys"
+      } ]
     } ]
   } ]
 }

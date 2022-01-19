@@ -33,6 +33,29 @@
   }, {
     "children" : [ ]
   }, {
-    "children" : [ ]
+    "children" : [ {
+      "id" : 2,
+      "lastName" : "Popescu",
+      "firstName" : "Miruna",
+      "city" : "Cluj-Napoca",
+      "age" : 2,
+      "giftsPreferences" : [ "Sweets", "Clothes", "Technology" ],
+      "averageScore" : 10.0,
+      "niceScoreHistory" : [ 4.0 ],
+      "assignedBudget" : 934.0,
+      "receivedGifts" : [ {
+        "productName" : "Bag of Candy",
+        "price" : 20.0,
+        "category" : "Sweets"
+      }, {
+        "productName" : "Dress",
+        "price" : 45.0,
+        "category" : "Clothes"
+      }, {
+        "productName" : "Iphone",
+        "price" : 700.0,
+        "category" : "Technology"
+      } ]
+    } ]
   } ]
 }

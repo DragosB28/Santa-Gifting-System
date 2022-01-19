@@ -530,6 +530,17 @@
       "niceScoreHistory" : [ 2.0, 9.0 ],
       "assignedBudget" : 158.94195444526085,
       "receivedGifts" : [ ]
+    }, {
+      "id" : 8,
+      "lastName" : "Ionescu",
+      "firstName" : "Miruna",
+      "city" : "Timisoara",
+      "age" : 2,
+      "giftsPreferences" : [ "Toys" ],
+      "averageScore" : 10.0,
+      "niceScoreHistory" : [ 3.0 ],
+      "assignedBudget" : 85.58412931667891,
+      "receivedGifts" : [ ]
     } ]
   }, {
     "children" : [ {
@@ -608,6 +619,17 @@
       "averageScore" : 7.666666666666668,
       "niceScoreHistory" : [ 2.0, 9.0, 1.0 ],
       "assignedBudget" : 149.5230271602403,
+      "receivedGifts" : [ ]
+    }, {
+      "id" : 8,
+      "lastName" : "Ionescu",
+      "firstName" : "Miruna",
+      "city" : "Timisoara",
+      "age" : 3,
+      "giftsPreferences" : [ "Toys" ],
+      "averageScore" : 10.0,
+      "niceScoreHistory" : [ 3.0, 1.0 ],
+      "assignedBudget" : 105.0161729219079,
       "receivedGifts" : [ ]
     } ]
   } ]

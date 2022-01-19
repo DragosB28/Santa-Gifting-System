@@ -373,20 +373,9 @@
         "productName" : "Handbag",
         "price" : 200.0,
         "category" : "Clothes"
-      } ]
-    }, {
-      "id" : 2,
-      "lastName" : "Mihalache",
-      "firstName" : "Diana",
-      "city" : "Brasov",
-      "age" : 19,
-      "giftsPreferences" : [ "Board Games", "Books", "Toys", "Sweets", "Technology" ],
-      "averageScore" : 6.933333333333334,
-      "niceScoreHistory" : [ 4.0, 6.0 ],
-      "assignedBudget" : 117.50845002414293,
-      "receivedGifts" : [ {
-        "productName" : "Bike",
-        "price" : 25.0,
+      }, {
+        "productName" : "Lego",
+        "price" : 30.0,
         "category" : "Toys"
       } ]
     }, {
@@ -429,11 +418,18 @@
       "averageScore" : 8.666666666666668,
       "niceScoreHistory" : [ 3.0, 5.0, 9.0 ],
       "assignedBudget" : 142.14762886597939,
-      "receivedGifts" : [ {
-        "productName" : "Lego",
-        "price" : 30.0,
-        "category" : "Toys"
-      } ]
+      "receivedGifts" : [ ]
+    }, {
+      "id" : 6,
+      "lastName" : "Popa",
+      "firstName" : "Andreea",
+      "city" : "Craiova",
+      "age" : 11,
+      "giftsPreferences" : [ "Board Games", "Toys", "Sweets" ],
+      "averageScore" : 7.2,
+      "niceScoreHistory" : [ 6.0 ],
+      "assignedBudget" : 219.31348453608248,
+      "receivedGifts" : [ ]
     } ]
   } ]
 }

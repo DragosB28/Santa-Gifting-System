@@ -84,6 +84,21 @@
         "price" : 5.0,
         "category" : "Toys"
       } ]
+    }, {
+      "id" : 5,
+      "lastName" : "Pop",
+      "firstName" : "Mihai",
+      "city" : "Braila",
+      "age" : 10,
+      "giftsPreferences" : [ "Sweets" ],
+      "averageScore" : 10.0,
+      "niceScoreHistory" : [ 6.0 ],
+      "assignedBudget" : 90.77586206896551,
+      "receivedGifts" : [ {
+        "productName" : "Bag of Candy",
+        "price" : 20.0,
+        "category" : "Sweets"
+      } ]
     } ]
   }, {
     "children" : [ {
@@ -109,6 +124,25 @@
         "price" : 10.0,
         "category" : "Board Games"
       } ]
+    }, {
+      "id" : 5,
+      "lastName" : "Pop",
+      "firstName" : "Mihai",
+      "city" : "Braila",
+      "age" : 11,
+      "giftsPreferences" : [ "Toys", "Sweets" ],
+      "averageScore" : 10.0,
+      "niceScoreHistory" : [ 6.0 ],
+      "assignedBudget" : 511.23919308357347,
+      "receivedGifts" : [ {
+        "productName" : "Doll",
+        "price" : 10.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Bag of Candy",
+        "price" : 20.0,
+        "category" : "Sweets"
+      } ]
     } ]
   }, {
     "children" : [ {
@@ -133,6 +167,48 @@
         "productName" : "Doll",
         "price" : 10.0,
         "category" : "Toys"
+      } ]
+    }, {
+      "id" : 5,
+      "lastName" : "Pop",
+      "firstName" : "Mihai",
+      "city" : "Braila",
+      "age" : 12,
+      "giftsPreferences" : [ "Clothes", "Toys", "Sweets" ],
+      "averageScore" : 10.0,
+      "niceScoreHistory" : [ 6.0 ],
+      "assignedBudget" : 481.46137787056364,
+      "receivedGifts" : [ {
+        "productName" : "Dress",
+        "price" : 45.0,
+        "category" : "Clothes"
+      }, {
+        "productName" : "Doll",
+        "price" : 10.0,
+        "category" : "Toys"
+      }, {
+        "productName" : "Bag of Candy",
+        "price" : 20.0,
+        "category" : "Sweets"
+      } ]
+    }, {
+      "id" : 6,
+      "lastName" : "Stoica",
+      "firstName" : "Andreea",
+      "city" : "Braila",
+      "age" : 14,
+      "giftsPreferences" : [ "Board Games", "Clothes" ],
+      "averageScore" : 6.6,
+      "niceScoreHistory" : [ 6.0 ],
+      "assignedBudget" : 244.43423799582462,
+      "receivedGifts" : [ {
+        "productName" : "Uno",
+        "price" : 10.0,
+        "category" : "Board Games"
+      }, {
+        "productName" : "Dress",
+        "price" : 45.0,
+        "category" : "Clothes"
       } ]
     } ]
   } ]

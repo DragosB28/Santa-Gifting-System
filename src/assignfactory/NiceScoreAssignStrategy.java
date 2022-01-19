@@ -11,16 +11,20 @@ import java.util.stream.Collectors;
 public class NiceScoreAssignStrategy implements AssignStrategy {
     @Override
     public void order(Santa santa) {
-        santa.updateChildAgeCategory();
-        santa.checkAgeRestriction();
+        System.out.println("Strategia1: " + santa.getChildren());
 
-        santa.setChildren(santa.getChildren().stream()
+        List<Child> children = santa.getChildren();
+        List<Child> auxList = children;
+
+        children = children.stream()
                 .sorted(Comparator.comparingDouble(Child::getNiceScore).thenComparing(Child::getId)
                         .reversed()        )
-                .collect(Collectors.toList()));
+                .collect(Collectors.toList());
 
-        santa.updateChildAgeCategory();
-        santa.checkAgeRestriction();
+        auxList.clear();
+        auxList.addAll(children);
+        children = auxList;
 
+        santa.setChildren(children);
     }
 }

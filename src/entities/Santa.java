@@ -164,6 +164,7 @@ public class Santa {
         this.resetAllPreviousGifts();
         this.decideGiftsPerChild();
         this.applyYElf();
+        this.applyAssignStrategy(CityStrategyEnum.ID);
     }
 
     /**
@@ -297,10 +298,10 @@ public class Santa {
     public void applyAssignStrategy(final CityStrategyEnum cityStrategyEnum) {
         AssignStrategyFactory factory = AssignStrategyFactory.getAssignStrategyFactory();
         AssignStrategy assignStrategy;
-        System.out.println(children);
+        System.out.println("Strategia0: " + children);
         assignStrategy = factory.makeAssignStrategy(cityStrategyEnum);
         assignStrategy.order(this);
-        System.out.println(children);
+        System.out.println("Strategia2: "+ children);
         System.out.println();
     }
 

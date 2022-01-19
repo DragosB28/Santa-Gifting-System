@@ -193,9 +193,9 @@
         "price" : 45.0,
         "category" : "Clothes"
       }, {
-        "productName" : "Puzzle",
-        "price" : 50.0,
-        "category" : "Board Games"
+        "productName" : "Harry Potter",
+        "price" : 35.0,
+        "category" : "Books"
       } ]
     }, {
       "id" : 1,
@@ -208,6 +208,10 @@
       "niceScoreHistory" : [ 6.0, 5.0, 6.0 ],
       "assignedBudget" : 492.7993055555555,
       "receivedGifts" : [ {
+        "productName" : "Harry Potter",
+        "price" : 35.0,
+        "category" : "Books"
+      }, {
         "productName" : "Headphones",
         "price" : 100.0,
         "category" : "Technology"
@@ -216,8 +220,8 @@
         "price" : 25.0,
         "category" : "Toys"
       }, {
-        "productName" : "Puzzle",
-        "price" : 50.0,
+        "productName" : "Monopoly",
+        "price" : 30.0,
         "category" : "Board Games"
       } ]
     }, {
@@ -231,12 +235,16 @@
       "niceScoreHistory" : [ 2.0, 1.0, 5.0 ],
       "assignedBudget" : 228.13194444444443,
       "receivedGifts" : [ {
+        "productName" : "Headphones",
+        "price" : 100.0,
+        "category" : "Technology"
+      }, {
         "productName" : "Dress",
         "price" : 45.0,
         "category" : "Clothes"
       }, {
-        "productName" : "Puzzle",
-        "price" : 50.0,
+        "productName" : "Monopoly",
+        "price" : 30.0,
         "category" : "Board Games"
       } ]
     }, {
@@ -250,16 +258,12 @@
       "niceScoreHistory" : [ 9.0, 5.0 ],
       "assignedBudget" : 456.26388888888886,
       "receivedGifts" : [ {
-        "productName" : "Harry Potter",
-        "price" : 35.0,
-        "category" : "Books"
-      }, {
         "productName" : "Headphones",
         "price" : 100.0,
         "category" : "Technology"
       }, {
-        "productName" : "Monopoly",
-        "price" : 30.0,
+        "productName" : "Puzzle",
+        "price" : 50.0,
         "category" : "Board Games"
       } ]
     }, {
@@ -273,32 +277,9 @@
       "niceScoreHistory" : [ 9.0 ],
       "assignedBudget" : 360.20833333333326,
       "receivedGifts" : [ {
-        "productName" : "Headphones",
-        "price" : 100.0,
-        "category" : "Technology"
-      }, {
-        "productName" : "Harry Potter",
-        "price" : 35.0,
-        "category" : "Books"
-      }, {
-        "productName" : "Monopoly",
-        "price" : 30.0,
+        "productName" : "Puzzle",
+        "price" : 50.0,
         "category" : "Board Games"
-      } ]
-    }, {
-      "id" : 5,
-      "lastName" : "Popescu",
-      "firstName" : "Tudor",
-      "city" : "Braila",
-      "age" : 19,
-      "giftsPreferences" : [ "Technology", "Toys", "Books", "Board Games" ],
-      "averageScore" : 10.0,
-      "niceScoreHistory" : [ 9.0 ],
-      "assignedBudget" : 38.81278538812786,
-      "receivedGifts" : [ {
-        "productName" : "Doll",
-        "price" : 10.0,
-        "category" : "Toys"
       } ]
     } ]
   }, {
@@ -311,7 +292,7 @@
       "giftsPreferences" : [ "Toys", "Books", "Technology", "Clothes", "Board Games" ],
       "averageScore" : 2.933333333333333,
       "niceScoreHistory" : [ 5.0, 4.0, 1.0 ],
-      "assignedBudget" : 32.66538777747328,
+      "assignedBudget" : 32.66538777747327,
       "receivedGifts" : [ {
         "productName" : "Bike",
         "price" : 25.0,
@@ -326,7 +307,7 @@
       "giftsPreferences" : [ "Toys", "Board Games", "Books", "Technology" ],
       "averageScore" : 8.58,
       "niceScoreHistory" : [ 6.0, 5.0, 6.0, 8.0 ],
-      "assignedBudget" : 136.49465607015622,
+      "assignedBudget" : 136.4946560701562,
       "receivedGifts" : [ {
         "productName" : "Bike",
         "price" : 25.0,
@@ -345,7 +326,7 @@
       "giftsPreferences" : [ "Technology", "Toys", "Books", "Board Games", "Clothes" ],
       "averageScore" : 7.14,
       "niceScoreHistory" : [ 2.0, 1.0, 5.0, 8.0 ],
-      "assignedBudget" : 113.58646204439573,
+      "assignedBudget" : 113.58646204439572,
       "receivedGifts" : [ {
         "productName" : "Bike",
         "price" : 25.0,
@@ -364,7 +345,7 @@
       "giftsPreferences" : [ "Books", "Technology", "Board Games" ],
       "averageScore" : 10.0,
       "niceScoreHistory" : [ 9.0, 5.0, 9.0 ],
-      "assignedBudget" : 111.35927651411346,
+      "assignedBudget" : 111.35927651411345,
       "receivedGifts" : [ {
         "productName" : "Puzzle",
         "price" : 50.0,
@@ -379,26 +360,30 @@
       "giftsPreferences" : [ "Technology", "Books", "Board Games" ],
       "averageScore" : 10.0,
       "niceScoreHistory" : [ 9.0, 3.0 ],
-      "assignedBudget" : 159.0846807344478,
+      "assignedBudget" : 159.08468073444777,
       "receivedGifts" : [ {
         "productName" : "Puzzle",
         "price" : 50.0,
         "category" : "Board Games"
       } ]
     }, {
-      "id" : 5,
-      "lastName" : "Popescu",
-      "firstName" : "Tudor",
+      "id" : 6,
+      "lastName" : "Pop",
+      "firstName" : "Alexandra",
       "city" : "Braila",
-      "age" : 19,
-      "giftsPreferences" : [ "Technology", "Toys", "Books", "Board Games" ],
+      "age" : 13,
+      "giftsPreferences" : [ "Technology", "Clothes", "Books", "Board Games" ],
       "averageScore" : 10.0,
-      "niceScoreHistory" : [ 9.0 ],
-      "assignedBudget" : 38.81278538812786,
+      "niceScoreHistory" : [ 7.0 ],
+      "assignedBudget" : 206.8100849547821,
       "receivedGifts" : [ {
-        "productName" : "Doll",
-        "price" : 10.0,
-        "category" : "Toys"
+        "productName" : "Dress",
+        "price" : 45.0,
+        "category" : "Clothes"
+      }, {
+        "productName" : "Puzzle",
+        "price" : 50.0,
+        "category" : "Board Games"
       } ]
     } ]
   } ]

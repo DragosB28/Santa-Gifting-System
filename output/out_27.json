@@ -413,33 +413,6 @@
         "price" : 15.0,
         "category" : "Toys"
       } ]
-    }, {
-      "id" : 5,
-      "lastName" : "Mihalache",
-      "firstName" : "Mihai",
-      "city" : "Cluj-Napoca",
-      "age" : 19,
-      "giftsPreferences" : [ "Sweets", "Toys", "Board Games", "Books" ],
-      "averageScore" : 9.0,
-      "niceScoreHistory" : [ 6.0 ],
-      "assignedBudget" : 136.89413265306123,
-      "receivedGifts" : [ {
-        "productName" : "Bag of Candy",
-        "price" : 20.0,
-        "category" : "Sweets"
-      }, {
-        "productName" : "Castle",
-        "price" : 15.0,
-        "category" : "Toys"
-      }, {
-        "productName" : "Monopoly",
-        "price" : 30.0,
-        "category" : "Board Games"
-      }, {
-        "productName" : "Twilight",
-        "price" : 30.0,
-        "category" : "Books"
-      } ]
     } ]
   } ]
 }

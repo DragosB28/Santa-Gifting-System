@@ -142,25 +142,6 @@
         "category" : "Board Games"
       } ]
     }, {
-      "id" : 1,
-      "lastName" : "Pop",
-      "firstName" : "Mihai",
-      "city" : "Braila",
-      "age" : 19,
-      "giftsPreferences" : [ "Board Games", "Toys", "Technology", "Books" ],
-      "averageScore" : 10.0,
-      "niceScoreHistory" : [ 10.0 ],
-      "assignedBudget" : 64.18604651162791,
-      "receivedGifts" : [ {
-        "productName" : "Monopoly",
-        "price" : 30.0,
-        "category" : "Board Games"
-      }, {
-        "productName" : "Doll",
-        "price" : 10.0,
-        "category" : "Toys"
-      } ]
-    }, {
       "id" : 2,
       "lastName" : "Pop",
       "firstName" : "Andreea",
@@ -211,25 +192,6 @@
         "productName" : "Bag of Candy",
         "price" : 20.0,
         "category" : "Sweets"
-      } ]
-    }, {
-      "id" : 1,
-      "lastName" : "Pop",
-      "firstName" : "Mihai",
-      "city" : "Braila",
-      "age" : 19,
-      "giftsPreferences" : [ "Board Games", "Toys", "Technology", "Books" ],
-      "averageScore" : 10.0,
-      "niceScoreHistory" : [ 10.0 ],
-      "assignedBudget" : 64.18604651162791,
-      "receivedGifts" : [ {
-        "productName" : "Monopoly",
-        "price" : 30.0,
-        "category" : "Board Games"
-      }, {
-        "productName" : "Doll",
-        "price" : 10.0,
-        "category" : "Toys"
       } ]
     }, {
       "id" : 2,
