@@ -73,8 +73,10 @@ public class Santa {
             double averageScore = strategy.calculateAverageScore(child.getNiceScoreHistory());
             averageScore += (double) (averageScore * child.getNiceScoreBonus() / 100);
             if (averageScore > 10) {
+                child.setNiceScore(10);
                 child.setAverageScore(10);
             } else {
+                child.setNiceScore(averageScore);
                 child.setAverageScore(averageScore);
             }
         }
@@ -157,9 +159,7 @@ public class Santa {
         this.calculateBudgetUnit();
         this.calculateAllocatedBudget();
         this.applyAssignStrategy(annualChange.getCityStrategyEnum());
-
-
-
+        System.out.println(children);
         this.applyBPWElf();
         this.resetAllPreviousGifts();
         this.decideGiftsPerChild();
@@ -197,6 +197,9 @@ public class Santa {
         for (ChildUpdate childUpdate : childrenUpdates) {
             for (Child child : children) {
                 if (childUpdate.getId() == child.getId()) {
+                    if (childUpdate.getNiceScore() != -1) {
+                        child.setNiceScore(childUpdate.getNiceScore());
+                    }
                     child.addNewNiceScore(childUpdate.getNiceScore());
                     break;
                 }
@@ -298,11 +301,10 @@ public class Santa {
     public void applyAssignStrategy(final CityStrategyEnum cityStrategyEnum) {
         AssignStrategyFactory factory = AssignStrategyFactory.getAssignStrategyFactory();
         AssignStrategy assignStrategy;
-        System.out.println("Strategia0: " + children);
         assignStrategy = factory.makeAssignStrategy(cityStrategyEnum);
         assignStrategy.order(this);
-        System.out.println("Strategia2: "+ children);
-        System.out.println();
+
+
     }
 
     public List<Child> getChildren() {

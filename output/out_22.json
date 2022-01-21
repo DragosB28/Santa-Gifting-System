@@ -324,8 +324,8 @@
       "niceScoreHistory" : [ 7.0, 3.0, 0.0 ],
       "assignedBudget" : 26.173550320192703,
       "receivedGifts" : [ {
-        "productName" : "Car",
-        "price" : 20.0,
+        "productName" : "Bike",
+        "price" : 25.0,
         "category" : "Toys"
       } ]
     }, {
@@ -395,8 +395,8 @@
       "niceScoreHistory" : [ 3.0 ],
       "assignedBudget" : 71.38240996416191,
       "receivedGifts" : [ {
-        "productName" : "Bike",
-        "price" : 25.0,
+        "productName" : "Car",
+        "price" : 20.0,
         "category" : "Toys"
       } ]
     }, {

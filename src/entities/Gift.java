@@ -54,6 +54,10 @@ public final class Gift {
         this.quantity -= 1;
     }
 
+    public void increaseQuantity(int quantity) {
+        this.quantity += quantity;
+    }
+
     @Override
     public String toString() {
         return "Gift{" +

@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 public class IdAssignStrategy implements AssignStrategy {
     @Override
     public void order(Santa santa) {
-        System.out.println("Strategia1: " + santa.getChildren());
         List<Child> children = santa.getChildren();
         List<Child> auxList = children;
 

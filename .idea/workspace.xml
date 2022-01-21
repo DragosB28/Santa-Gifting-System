@@ -6,22 +6,22 @@
       <change beforePath="$PROJECT_DIR$/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/checkstyle.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proiect1/assignfactory/IdAssignStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/assignfactory/IdAssignStrategy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proiect1/assignfactory/NiceScoreAssignStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/assignfactory/NiceScoreAssignStrategy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proiect1/elffactory/YellowElfStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/elffactory/YellowElfStrategy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proiect1/entities/Santa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proiect1/entities/Santa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_13.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_13.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_21.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_21.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_23.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_23.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_24.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_24.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/out_14.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_14.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/out_20.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_20.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/out_22.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_22.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out_25.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_25.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out_26.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_26.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out_27.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_27.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out_28.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_28.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/out_29.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_29.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out_30.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_30.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignfactory/IdAssignStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignfactory/IdAssignStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignfactory/NiceScoreAssignStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignfactory/NiceScoreAssignStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignfactory/NiceScoreCityAssignStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignfactory/NiceScoreCityAssignStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Gift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Gift.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Santa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Santa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test13.json" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test13.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/jackson-annotations-2.9.7.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -112,6 +112,7 @@
       <workItem from="1642521855248" duration="11781000" />
       <workItem from="1642601696545" duration="286000" />
       <workItem from="1642602067894" duration="7540000" />
+      <workItem from="1642613431221" duration="15452000" />
     </task>
     <servers />
   </component>

@@ -5,9 +5,9 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 import entities.AnnualChanges;
 import entities.Input;
 import entities.Santa;
-import io.AnnualChildrenJsonWriter;
-import io.InputLoader;
-import io.Writer;
+    import io.AnnualChildrenJsonWriter;
+    import io.InputLoader;
+    import io.Writer;
 
 import java.io.File;
 import java.io.FileWriter;
