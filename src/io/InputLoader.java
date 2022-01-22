@@ -60,7 +60,7 @@ public class InputLoader {
                         giftsPreferences.add(Category.valueOf(gift.toString()
                                 .toUpperCase().replace(" ", "_")));
                     }
-                    initialData.addChild(new Child(
+                    initialData.addChild(new Child.Builder(
                             Integer.parseInt(((JSONObject) childJson)
                                     .get("id").toString()),
                             (String) ((JSONObject) childJson).get("lastName"),
@@ -72,10 +72,11 @@ public class InputLoader {
                             Double.parseDouble(((JSONObject) childJson)
                                     .get("niceScore").toString()),
                             giftsPreferences,
-                            Double.parseDouble(((JSONObject) childJson)
-                                    .get("niceScoreBonus").toString()),
-                            ElvesType.valueOf(((JSONObject) childJson).get("elf").toString().toUpperCase())
-                    ));
+
+                            ElvesType.valueOf(((JSONObject) childJson)
+                                    .get("elf").toString().toUpperCase())
+                    ).addNiceScoreBonus(Double.parseDouble(((JSONObject) childJson)
+                            .get("niceScoreBonus").toString())).build());
                 }
             }
 
@@ -126,7 +127,7 @@ public class InputLoader {
                             giftsPreferences.add(Category.valueOf(gift
                                     .toString().toUpperCase().replace(" ", "_")));
                         }
-                        newChildren.add(new Child(
+                        newChildren.add(new Child.Builder(
                                 Integer.parseInt(((JSONObject) newChildJson).get("id").toString()),
                                 (String) ((JSONObject) newChildJson).get("lastName"),
                                 (String) ((JSONObject) newChildJson).get("firstName"),
@@ -138,10 +139,10 @@ public class InputLoader {
                                 Double.parseDouble(((JSONObject) newChildJson)
                                         .get("niceScore").toString()),
                                 giftsPreferences,
-                                Double.parseDouble(((JSONObject) newChildJson)
-                                        .get("niceScoreBonus").toString()),
-                                ElvesType.valueOf(((JSONObject) newChildJson).get("elf").toString().toUpperCase())
-                        ));
+                                ElvesType.valueOf(((JSONObject) newChildJson)
+                                        .get("elf").toString().toUpperCase())
+                        ).addNiceScoreBonus(Double.parseDouble(((JSONObject) newChildJson)
+                                .get("niceScoreBonus").toString())).build());
                     }
 
                     //adding to annualChange the list of childrenUpdates
@@ -173,7 +174,8 @@ public class InputLoader {
                                         .get("id").toString()),
                                 niceScore,
                                 newGiftsPreferences,
-                                ElvesType.valueOf(((JSONObject) childUpdatesJson).get("elf").toString().toUpperCase())
+                                ElvesType.valueOf(((JSONObject) childUpdatesJson)
+                                        .get("elf").toString().toUpperCase())
                         ));
                     }
 
@@ -183,7 +185,10 @@ public class InputLoader {
                             newGifts,
                             newChildren,
                             childrenUpdates,
-                            CityStrategyEnum.valueOf(((JSONObject) annualChangeJson).get("strategy").toString().toUpperCase().replace("NICESCORECITY", "NICE_SCORE_CITY").replace("NICESCORE", "NICE_SCORE"))
+                            CityStrategyEnum.valueOf(((JSONObject) annualChangeJson)
+                                    .get("strategy").toString().toUpperCase()
+                                    .replace("NICESCORECITY", "NICE_SCORE_CITY")
+                                    .replace("NICESCORE", "NICE_SCORE"))
                     ));
                 }
             }

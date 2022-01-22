@@ -1,15 +1,17 @@
 package elffactory;
 
+import common.Constants;
 import entities.Child;
 import entities.Gift;
 
 import java.util.List;
 
-public class PinkElfStrategy implements ElfActionStrategy {
+public final class PinkElfStrategy implements ElfActionStrategy {
     @Override
-    public void applyElf(Child child, List<Gift> santaGifts) {
+    public void applyElf(final Child child, final List<Gift> santaGifts) {
         double newBudget = (double) child.getFirstAssignedBudget()
-                + (double) (child.getFirstAssignedBudget() * 30) / 100;
+                + (double) (child.getFirstAssignedBudget() * Constants.ELF_PERCENT)
+                / Constants.PERCENT_100;
         child.setFirstAssignedBudget(newBudget);
     }
 }

@@ -16,6 +16,10 @@ public final class Constants {
     public static final int BABY_AGE_LIMIT = 5;
     public static final int KID_AGE_LIMIT = 12;
     public static final int TEEN_AGE_LIMIT = 18;
+    public static final int MAX_AVERAGE_SCORE = 10;
+    public static final int ELF_PERCENT = 30;
+    public static final int PERCENT_100 = 100;
+
 
     private Constants() {
         //constructor for checkstyle

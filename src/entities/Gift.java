@@ -46,25 +46,40 @@ public final class Gift {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(final int quantity) {
         this.quantity = quantity;
     }
 
+    /**
+     * Whenever a gift is assigned, this method is responsible to decrement
+     * the quantity of that gift.
+     */
     public void decrementQuantity() {
         this.quantity -= 1;
     }
 
-    public void increaseQuantity(int quantity) {
-        this.quantity += quantity;
+    /**
+     * Whenever an already existing gift is received, it's quantity
+     * is increased
+     * @param newQuantity the new amount to be added
+     */
+    public void increaseQuantity(final int newQuantity) {
+        this.quantity += newQuantity;
     }
 
     @Override
     public String toString() {
-        return "Gift{" +
-                "productName='" + productName + '\'' +
-                ", price=" + price +
-                ", category=" + category +
-                ", quantity=" + quantity +
+        return "Gift{"
+                +
+                "productName='" + productName
+                + '\''
+                +
+                ", price=" + price
+                +
+                ", category=" + category
+                +
+                ", quantity=" + quantity
+                +
                 '}';
     }
 }

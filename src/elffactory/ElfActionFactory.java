@@ -2,7 +2,7 @@ package elffactory;
 
 import enums.ElvesType;
 
-public class ElfActionFactory {
+public final class ElfActionFactory {
     private static ElfActionFactory elfFactory;
 
     private ElfActionFactory() {

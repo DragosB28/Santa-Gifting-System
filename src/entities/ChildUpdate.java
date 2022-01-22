@@ -12,7 +12,8 @@ public final class ChildUpdate {
     private ElvesType elvesType;
 
     public ChildUpdate(final int id, final double niceScore,
-                       final List<Category> giftsPreferences, ElvesType elvesType) {
+                       final List<Category> giftsPreferences,
+                       final ElvesType elvesType) {
         this.id = id;
         this.niceScore = niceScore;
         this.giftsPreferences = giftsPreferences;
@@ -47,17 +48,22 @@ public final class ChildUpdate {
         return elvesType;
     }
 
-    public void setElvesType(ElvesType elvesType) {
+    public void setElvesType(final ElvesType elvesType) {
         this.elvesType = elvesType;
     }
 
     @Override
     public String toString() {
-        return "ChildUpdate{" +
-                "id=" + id +
-                ", niceScore=" + niceScore +
-                ", giftsPreferences=" + giftsPreferences +
-                ", elvesType=" + elvesType +
+        return "ChildUpdate{"
+                +
+                "id=" + id
+                +
+                ", niceScore=" + niceScore
+                +
+                ", giftsPreferences=" + giftsPreferences
+                +
+                ", elvesType=" + elvesType
+                +
                 '}';
     }
 }

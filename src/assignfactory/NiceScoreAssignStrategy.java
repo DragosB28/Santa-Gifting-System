@@ -2,22 +2,21 @@ package assignfactory;
 
 import entities.Child;
 import entities.Santa;
-import enums.AgeCategory;
-
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class NiceScoreAssignStrategy implements AssignStrategy {
+public final class NiceScoreAssignStrategy implements AssignStrategy {
     @Override
-    public void order(Santa santa) {
+    public void order(final Santa santa) {
         List<Child> children = santa.getChildren();
         List<Child> auxList = children;
 
         children = children.stream()
-                .sorted(Comparator.comparingDouble(Child::getNiceScore).thenComparing(new Comparator<Child>() {
+                .sorted(Comparator.comparingDouble(Child::getNiceScore)
+                        .thenComparing(new Comparator<Child>() {
                             @Override
-                            public int compare(Child o1, Child o2) {
+                            public int compare(final Child o1, final Child o2) {
                                     return o2.getId() - o1.getId();
                             }
                         })

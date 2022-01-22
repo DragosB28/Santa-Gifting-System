@@ -2,6 +2,7 @@ package entities;
 
 import assignfactory.AssignStrategy;
 import assignfactory.AssignStrategyFactory;
+import common.Constants;
 import elffactory.ElfActionFactory;
 import elffactory.ElfActionStrategy;
 import enums.AgeCategory;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Santa {
+public final class Santa {
     private final Input in;
     private List<Child> children;
     private final List<Gift> santaGiftsList;
@@ -71,10 +72,11 @@ public class Santa {
         for (Child child : children) {
             strategy = factory.makeStrategy(child.getAgeCategory());
             double averageScore = strategy.calculateAverageScore(child.getNiceScoreHistory());
-            averageScore += (double) (averageScore * child.getNiceScoreBonus() / 100);
-            if (averageScore > 10) {
-                child.setNiceScore(10);
-                child.setAverageScore(10);
+            averageScore += (double) (averageScore * child.getNiceScoreBonus()
+                    / Constants.PERCENT_100);
+            if (averageScore > Constants.MAX_AVERAGE_SCORE) {
+                child.setNiceScore(Constants.MAX_AVERAGE_SCORE);
+                child.setAverageScore(Constants.MAX_AVERAGE_SCORE);
             } else {
                 child.setNiceScore(averageScore);
                 child.setAverageScore(averageScore);
@@ -159,7 +161,6 @@ public class Santa {
         this.calculateBudgetUnit();
         this.calculateAllocatedBudget();
         this.applyAssignStrategy(annualChange.getCityStrategyEnum());
-        System.out.println(children);
         this.applyBPWElf();
         this.resetAllPreviousGifts();
         this.decideGiftsPerChild();
@@ -261,6 +262,10 @@ public class Santa {
         }
     }
 
+    /**
+     * Goes through the list of children and updates the current elf type
+     * @param childUpdates needed for the new elf
+     */
     public void updateElfType(final List<ChildUpdate> childUpdates) {
         for (ChildUpdate childUpdate : childUpdates) {
             for (Child child : children) {
@@ -272,6 +277,10 @@ public class Santa {
         }
     }
 
+    /**
+     * Applies the corresponding strategies of the black, pink and
+     * white elves to the entire list of children
+     */
     public void applyBPWElf() {
         ElfActionFactory factory = ElfActionFactory.getElfActionFactory();
         ElfActionStrategy elfActionStrategy;
@@ -286,6 +295,10 @@ public class Santa {
         }
     }
 
+    /**
+     * Applies only the yellow elf type strategy to the children that didn't
+     * receive a gift
+     */
     public void applyYElf() {
         ElfActionFactory factory = ElfActionFactory.getElfActionFactory();
         ElfActionStrategy elfActionStrategy;
@@ -298,20 +311,23 @@ public class Santa {
         }
     }
 
+    /**
+     * Applies the assigning strategy, to have the list of children in the
+     * right order
+     * @param cityStrategyEnum needed for choosing the right strategy
+     */
     public void applyAssignStrategy(final CityStrategyEnum cityStrategyEnum) {
         AssignStrategyFactory factory = AssignStrategyFactory.getAssignStrategyFactory();
         AssignStrategy assignStrategy;
         assignStrategy = factory.makeAssignStrategy(cityStrategyEnum);
         assignStrategy.order(this);
-
-
     }
 
     public List<Child> getChildren() {
         return children;
     }
 
-    public void setChildren(List<Child> children) {
+    public void setChildren(final List<Child> children) {
         this.children = children;
     }
 }

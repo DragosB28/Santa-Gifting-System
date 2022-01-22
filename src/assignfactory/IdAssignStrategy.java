@@ -7,9 +7,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class IdAssignStrategy implements AssignStrategy {
+public final class IdAssignStrategy implements AssignStrategy {
     @Override
-    public void order(Santa santa) {
+    public void order(final Santa santa) {
         List<Child> children = santa.getChildren();
         List<Child> auxList = children;
 

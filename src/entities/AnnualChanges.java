@@ -22,7 +22,8 @@ public final class AnnualChanges {
 
     public AnnualChanges(final double newSantaBudget, final List<Gift> newGifts,
                          final List<Child> newChildren,
-                         final List<ChildUpdate> childrenUpdates, final CityStrategyEnum cityStrategyEnum) {
+                         final List<ChildUpdate> childrenUpdates,
+                         final CityStrategyEnum cityStrategyEnum) {
         this.newSantaBudget = newSantaBudget;
         this.newGifts = newGifts;
         this.newChildren = newChildren;
@@ -66,18 +67,24 @@ public final class AnnualChanges {
         return cityStrategyEnum;
     }
 
-    public void setCityStrategyEnum(CityStrategyEnum cityStrategyEnum) {
+    public void setCityStrategyEnum(final CityStrategyEnum cityStrategyEnum) {
         this.cityStrategyEnum = cityStrategyEnum;
     }
 
     @Override
     public String toString() {
-        return "AnnualChanges{" +
-                "newSantaBudget=" + newSantaBudget +
-                ", newGifts=" + newGifts +
-                ", newChildren=" + newChildren +
-                ", childrenUpdates=" + childrenUpdates +
-                ", cityStrategyEnum=" + cityStrategyEnum +
+        return "AnnualChanges{"
+                +
+                "newSantaBudget=" + newSantaBudget
+                +
+                ", newGifts=" + newGifts
+                +
+                ", newChildren=" + newChildren
+                +
+                ", childrenUpdates=" + childrenUpdates
+                +
+                ", cityStrategyEnum=" + cityStrategyEnum
+                +
                 '}';
     }
 }

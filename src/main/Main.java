@@ -36,8 +36,6 @@ public final class Main {
             InputLoader inputLoader = new InputLoader(fileEntry.getPath());
             Input input = inputLoader.readData();
 
-            System.out.println("Testul: " + fileEntry.getPath());
-
             Santa santa = new Santa(input);
             santa.solveRoundZero(input);
 

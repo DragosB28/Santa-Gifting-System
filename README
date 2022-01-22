@@ -1,5 +1,32 @@
 Barbu Dragos Sorin
-Proiect Etapa I
+Proiect Etapa II
+
+Schimbari aparute cu etapa II:
+-In primul rand, am schimbat metoda de creare a unui nou copil. Am folosit design pattern-ul builder pentru a instantia
+un nou copil (folosit pentru bonus score), fapt ce a dus la o mica schimbare in InputLoader, la momentul formarii
+unui copil.
+-Adaugarea de noi strategii pentru elfi si assign(pachetele assignfactory si elffactory), similare cu ceea ce am facut
+la etapa I pentru scor. Am folosit un singleton cu lazy instantiation, factory si strategy pentru a decide in functie de
+elf/strategia citita din input ce fel de strategy voi folosi si in continuare la aplicarea proprietatilor
+corespunzatoare.
+-Am adaugat campuri noi in entitatile precedente, cum ar fi quantity in gift, niceScoreBonus si elfType in child.
+-Am adaugat cateva constante noi in Constants, pentru a scapa de magic numbers.
+-Am adaugat metode noi, explicate in javadoc.
+
+Flow-ul a suferit mici schimbari. Runda 0 a ramas neschimbata, insa la rezolvarea fiecarui an, am adaugat metode pentru
+updatarea tipului de elf(updateElfType), ordonarea corespunzatoare a copiilor din lista(applyAssignStrategy), aplicarea
+schimbarilor de buget impuse de elfii black si purple(applyBPWElf). Dupa ce se asigneaza cadouri ca in etapa I, daca
+ramane vreun copil fara cadouri, aplic proprietarea elfului yellow(applyYElf), iar la final aplic strategia de ordonare
+dupa ID, pentru a avea lista de copii ordonata corespunzator pentru afisare.
+
+Pentru strategia de asignare a cadourilor, in clasele IdAssignStrategy, NiceScoreAssignStrategy si
+NiceScoreCityAssignStrategy am folosit streamuri, cu comparatori custom pentru a ordona lista de copii in functie de
+strategia ceruta. La strategia de niceScoreCity, am folosit 2 HashMap-uri, unul pentru a retine scorul total per oras
+(map), iar altul pentru a retine cati copii se afla in respectivul oras (amountMap).
+
+
+
+Readme etapa I:
 
 Structura proiect:
 In main incepe executia programului. InputLoader-ul este responsabil de a citi un fisier json si a popula un obiect de

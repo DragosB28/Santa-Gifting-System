@@ -5,9 +5,9 @@ import entities.Gift;
 
 import java.util.List;
 
-public class WhiteElfStrategy implements ElfActionStrategy {
+public final class WhiteElfStrategy implements ElfActionStrategy {
     @Override
-    public void applyElf(Child child, List<Gift> santaGifts) {
+    public void applyElf(final Child child, final List<Gift> santaGifts) {
         return;
     }
 }

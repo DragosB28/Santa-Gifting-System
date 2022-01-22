@@ -1,22 +1,28 @@
 package assignfactory;
 
-import elffactory.ElfActionFactory;
 import enums.CityStrategyEnum;
 
-public class AssignStrategyFactory {
+public final class AssignStrategyFactory {
     private static AssignStrategyFactory factory;
 
     private AssignStrategyFactory() {
 
     }
-
+    /**
+     * Lazy instantiation
+     * @return  factory as singleton
+     */
     public static AssignStrategyFactory getAssignStrategyFactory() {
         if (factory == null) {
             factory = new AssignStrategyFactory();
         }
         return factory;
     }
-
+    /**
+     * Decides which strategy to pick for the assigning method
+     * @param cityStrategyEnum required to pick the corresponding method
+     * @return  the corespondent strategy for the given CityStrategyEnum
+     */
     public AssignStrategy makeAssignStrategy(final CityStrategyEnum cityStrategyEnum) {
         return switch (cityStrategyEnum) {
             case ID -> new IdAssignStrategy();

@@ -26,24 +26,93 @@ public final class Child {
     private double firstAssignedBudget;
     private List<Gift> receivedGifts;
 
-    public Child(final int id, final String lastName, final String firstName,
-                 final int age, final Cities city, final double niceScore,
-                 final List<Category> giftsPreferences, final double niceScoreBonus, final ElvesType elvesType) {
-        this.id = id;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.age = age;
-        this.city = city;
-        this.niceScore = niceScore;
-        this.giftsPreferences = giftsPreferences;
+
+    public static final class Builder {
+        private int id;
+        private String lastName;
+        private String firstName;
+        private int age;
+        private Cities city;
+        private double niceScore;
+        private List<Category> giftsPreferences;
+        private double niceScoreBonus = 0;
+        private ElvesType elvesType;
+        private AgeCategory ageCategory;
+        private List<Double> niceScoreHistory;
+        private double averageScore;
+        private double firstAssignedBudget;
+        private List<Gift> receivedGifts;
+
+        public Builder(final int id, final String lastName, final String firstName,
+                     final int age, final Cities city, final double niceScore,
+                     final List<Category> giftsPreferences,
+                     final ElvesType elvesType) {
+            this.id = id;
+            this.lastName = lastName;
+            this.firstName = firstName;
+            this.age = age;
+            this.city = city;
+            this.niceScore = niceScore;
+            this.giftsPreferences = giftsPreferences;
+            calculateAgeCategory();
+            this.elvesType = elvesType;
+            this.niceScoreHistory = new ArrayList<>();
+            this.niceScoreHistory.add(niceScore);
+            this.averageScore = niceScore;
+            this.firstAssignedBudget = 0;
+            this.receivedGifts = new ArrayList<>();
+        }
+
+        /**
+         * Adds the optional field of niceScoreBonus to the child instance
+         * @param newNiceScoreBonus to be added
+         * @return the instance with the added niceScoreBonus
+         */
+        public Builder addNiceScoreBonus(final double newNiceScoreBonus) {
+            this.niceScoreBonus = newNiceScoreBonus;
+            return this;
+        }
+
+        /**
+         * Method to update the age category of a child
+         */
+        public void calculateAgeCategory() {
+            if (this.age < Constants.BABY_AGE_LIMIT) {
+                this.ageCategory = AgeCategory.BABY;
+            } else if (this.age < Constants.KID_AGE_LIMIT) {
+                this.ageCategory = AgeCategory.KID;
+            } else if (this.age <= Constants.TEEN_AGE_LIMIT) {
+                this.ageCategory = AgeCategory.TEEN;
+            } else if (this.age > Constants.TEEN_AGE_LIMIT
+            ) {
+                this.ageCategory = AgeCategory.YOUNG_ADULT;
+            }
+        }
+
+        /**
+         * Build method from the builder design pattern
+         * @return the Child instance
+         */
+        public Child build() {
+            return new Child(this);
+        }
+    }
+
+    private Child(final Builder builder) {
+        this.id = builder.id;
+        this.lastName = builder.lastName;
+        this.firstName = builder.firstName;
+        this.age = builder.age;
+        this.city = builder.city;
+        this.niceScore = builder.niceScore;
+        this.giftsPreferences = builder.giftsPreferences;
         calculateAgeCategory();
-        this.niceScoreBonus = niceScoreBonus;
-        this.elvesType = elvesType;
-        this.niceScoreHistory = new ArrayList<>();
-        this.niceScoreHistory.add(niceScore);
-        this.averageScore = niceScore;
-        this.firstAssignedBudget = 0;
-        this.receivedGifts = new ArrayList<>();
+        this.elvesType = builder.elvesType;
+        this.niceScoreBonus = builder.niceScoreBonus;
+        this.niceScoreHistory = builder.niceScoreHistory;
+        this.averageScore = builder.averageScore;
+        this.firstAssignedBudget = builder.firstAssignedBudget;
+        this.receivedGifts = builder.receivedGifts;
     }
 
     public int getId() {
@@ -106,7 +175,7 @@ public final class Child {
         return niceScoreBonus;
     }
 
-    public void setNiceScoreBonus(double niceScoreBonus) {
+    public void setNiceScoreBonus(final double niceScoreBonus) {
         this.niceScoreBonus = niceScoreBonus;
     }
 
@@ -114,7 +183,7 @@ public final class Child {
         return elvesType;
     }
 
-    public void setElvesType(ElvesType elvesType) {
+    public void setElvesType(final ElvesType elvesType) {
         this.elvesType = elvesType;
     }
 
@@ -217,21 +286,36 @@ public final class Child {
 
     @Override
     public String toString() {
-        return "Child{" +
-                "id=" + id +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", age=" + age +
-                ", city=" + city +
-                ", niceScore=" + niceScore +
-                ", giftsPreferences=" + giftsPreferences +
-                ", niceScoreBonus=" + niceScoreBonus +
-                ", elvesType=" + elvesType +
-                ", ageCategory=" + ageCategory +
-                ", niceScoreHistory=" + niceScoreHistory +
-                ", averageScore=" + averageScore +
-                ", firstAssignedBudget=" + firstAssignedBudget +
-                ", receivedGifts=" + receivedGifts +
+        return "Child{"
+                +
+                "id=" + id
+                +
+                ", lastName='" + lastName + '\''
+                +
+                ", firstName='" + firstName + '\''
+                +
+                ", age=" + age
+                +
+                ", city=" + city
+                +
+                ", niceScore=" + niceScore
+                +
+                ", giftsPreferences=" + giftsPreferences
+                +
+                ", niceScoreBonus=" + niceScoreBonus
+                +
+                ", elvesType=" + elvesType
+                +
+                ", ageCategory=" + ageCategory
+                +
+                ", niceScoreHistory=" + niceScoreHistory
+                +
+                ", averageScore=" + averageScore
+                +
+                ", firstAssignedBudget=" + firstAssignedBudget
+                +
+                ", receivedGifts=" + receivedGifts
+                +
                 '}';
     }
 }

@@ -5,9 +5,9 @@ import entities.Gift;
 
 import java.util.List;
 
-public class YellowElfStrategy implements ElfActionStrategy {
+public final class YellowElfStrategy implements ElfActionStrategy {
     @Override
-    public void applyElf(Child child, List<Gift> santaGifts) {
+    public void applyElf(final Child child, final List<Gift> santaGifts) {
         if (child.getReceivedGifts().isEmpty()) {
             double minPrice = Double.MAX_VALUE;
             double auxPrice;
@@ -22,7 +22,6 @@ public class YellowElfStrategy implements ElfActionStrategy {
                 }
             }
             if (chosenGift != null && chosenGift.getQuantity() > 0) {
-                System.out.println(chosenGift);
                 child.addReceivedGift(chosenGift);
                 chosenGift.decrementQuantity();
             }
